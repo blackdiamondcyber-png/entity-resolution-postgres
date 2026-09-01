@@ -110,7 +110,7 @@ Normalization functions must be `IMMUTABLE` to be indexable. I wrote one as
 `STABLE` at first, then wondered why the index was never used.
 
 Keep the review band. The temptation is to tune thresholds until everything
-auto-decides. Real data has genuinely ambiguous pairs, and a human queue for the
+auto-decides. Real data has ambiguous pairs, and a human queue for the
 middle 3% beats a wrong automatic answer.
 
 Log every merge with the score that caused it. When someone asks why two
