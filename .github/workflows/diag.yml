@@ -1,0 +1,50 @@
+name: diag
+
+on:
+  push:
+    branches: [ci-postgres]
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready --health-interval 10s
+          --health-timeout 5s --health-retries 5
+        ports:
+          - 5432:5432
+    env:
+      PGPASSWORD: postgres
+      PSQL: psql -v ON_ERROR_STOP=1 -X -h localhost -U postgres -d postgres
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          $PSQL -f sql/01-normalize.sql -q
+          $PSQL -f sql/02-blocking.sql -q
+          $PSQL -f sql/03-scoring.sql -q
+          $PSQL -f sql/04-merge.sql -q
+      - name: dump the fixture state
+        run: |
+          $PSQL <<'SQL'
+          insert into locations (source, name, address, postal_code, phone, latitude, longitude) values
+            ('registry', 'SMITH FAMILY DENTAL PLLC', '1420 N Main St Ste 200',  '78701', '5122670142',  30.2700, -97.7400),
+            ('places',   'Smith Family Dental',      '1420 North Main Street',  '78701', '512-267-0142',30.2700, -97.7400),
+            ('rep',      'Smith Family Dentistry',   '1420 N. Main, Suite 200', '78701', '5122670142',  30.2701, -97.7401);
+          insert into locations (source, name, address, postal_code, phone) values
+            ('places', 'Main Street Coffee Roasters', '1420 N Main St Ste 100', '78701', '5122679999');
+
+          \echo '--- locations ---'
+          select left(id::text,8) as id, source, name from locations order by source;
+          \echo '--- candidate_pairs ---'
+          select left(a_id::text,8) a, left(b_id::text,8) b, block from candidate_pairs;
+          \echo '--- scored_pairs ---'
+          select left(a_id::text,8) a, left(b_id::text,8) b, score, verdict from scored_pairs order by score desc;
+          \echo '--- run_auto_merge ---'
+          select run_auto_merge() as merged;
+          \echo '--- after ---'
+          select left(id::text,8) id, source, name, left(merged_into::text,8) merged_into from locations order by merged_into nulls first;
+          SQL
