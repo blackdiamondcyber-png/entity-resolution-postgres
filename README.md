@@ -1,7 +1,7 @@
 # Entity Resolution in Postgres
 
 Deduplicating business records that arrive from several sources and never agree
-with each other. No external service, no ML pipeline, just SQL.
+with each other, using nothing but Postgres and pg_trgm.
 
 I merged a federal provider registry, a places API, and hand-entered records
 into roughly 22,000 deduplicated business locations. This is the part that made
