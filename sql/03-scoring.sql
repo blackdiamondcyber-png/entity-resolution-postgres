@@ -25,13 +25,22 @@ returns numeric language sql stable set search_path = public as $$
        end);
 $$;
 
+-- One row per pair, whatever found it. Blocking is allowed to reach the same
+-- pair down several keys, and usually does: matching phone numbers very often
+-- means matching addresses too. Scoring is per pair, so collapse first, and
+-- keep which blocks hit as a label rather than as extra rows.
 create or replace view scored_pairs as
+with pairs as (
+  select a_id, b_id, string_agg(distinct block, '+' order by block) as block
+    from candidate_pairs
+   group by a_id, b_id
+)
 select p.a_id, p.b_id, p.block,
        match_score(a, b) as score,
        case when match_score(a, b) >= 0.85 then 'auto_merge'
             when match_score(a, b) >= 0.60 then 'review'
             else 'distinct' end as verdict
-from candidate_pairs p
+from pairs p
 join locations a on a.id = p.a_id
 join locations b on b.id = p.b_id;
 

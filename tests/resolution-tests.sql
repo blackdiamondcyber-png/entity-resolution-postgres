@@ -35,8 +35,20 @@ begin
   select count(*) into n from candidate_pairs;
   if n < 3 then raise exception 'blocking produced too few candidates: %', n; end if;
 
+  -- Four records, so six possible pairs, and every one of them is scored
+  -- exactly once however many blocking keys reached it.
+  select count(*) into n from scored_pairs;
+  if n <> 6 then raise exception 'expected 6 distinct scored pairs, got %', n; end if;
+
+  -- The registry and places rows are the same business written two ways and
+  -- merge on their own. The rep's row writes the suite differently and sits a
+  -- few metres off, so it scores 0.80 and 0.84 and is held for a human. That
+  -- is the point: a fuzzy match is queued, not merged.
   select count(*) into n from scored_pairs where verdict = 'auto_merge';
-  if n < 2 then raise exception 'expected duplicates to auto-merge, got %', n; end if;
+  if n <> 1 then raise exception 'expected 1 confident duplicate, got %', n; end if;
+
+  select count(*) into n from scored_pairs where verdict = 'review';
+  if n <> 2 then raise exception 'expected 2 pairs held for review, got %', n; end if;
 
   select max(score) into s from scored_pairs sp
     join locations c on c.id in (sp.a_id, sp.b_id)
@@ -46,8 +58,14 @@ begin
   end if;
 
   perform run_auto_merge();
+
+  -- One merge happened, so three records survive: the merged Smith pair, the
+  -- rep's row still awaiting a decision, and the coffee shop.
   select count(*) into n from locations where merged_into is null;
-  if n <> 2 then raise exception 'expected 2 surviving records, got %', n; end if;
+  if n <> 3 then raise exception 'expected 3 surviving records, got %', n; end if;
+
+  select count(*) into n from review_queue;
+  if n < 1 then raise exception 'review pairs were not queued for a human'; end if;
 
   raise notice 'all entity resolution assertions passed';
 end $$;
