@@ -1,5 +1,7 @@
 # Entity Resolution in Postgres
 
+[![tests](https://github.com/blackdiamondcyber-png/entity-resolution-postgres/actions/workflows/ci.yml/badge.svg)](https://github.com/blackdiamondcyber-png/entity-resolution-postgres/actions/workflows/ci.yml)
+
 Deduplicating business records that arrive from several sources and never agree
 with each other, using nothing but Postgres and pg_trgm.
 
@@ -103,6 +105,9 @@ psql "$DATABASE_URL" -f sql/03-scoring.sql
 psql "$DATABASE_URL" -f sql/04-merge.sql
 psql "$DATABASE_URL" -f tests/resolution-tests.sql
 ```
+
+The test file raises on the first failed assertion. CI runs exactly this
+sequence against `postgres:16` on every push.
 
 ## What I would do differently
 
