@@ -1,0 +1,41 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  sql:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    env:
+      # ON_ERROR_STOP is the whole point: without it psql prints the raised
+      # exception and still exits 0, so a failing assertion would pass CI.
+      PGPASSWORD: postgres
+      PSQL: psql -v ON_ERROR_STOP=1 -X -q -h localhost -U postgres -d postgres
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Load the schema, in the order the README documents
+        run: |
+          $PSQL -f sql/01-normalize.sql
+          $PSQL -f sql/02-blocking.sql
+          $PSQL -f sql/03-scoring.sql
+          $PSQL -f sql/04-merge.sql
+
+      - name: Run the assertions
+        run: $PSQL -f tests/resolution-tests.sql
