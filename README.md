@@ -13,11 +13,11 @@ it work.
 
 The same business shows up three times and looks different every time:
 
-| Source | Name | Address | Phone |
-|--------|------|---------|-------|
-| Registry | SMITH FAMILY DENTAL PLLC | 1420 N Main St Ste 200 | (512) 555-0142 |
-| Places API | Smith Family Dental | 1420 North Main Street | 512-555-0142 |
-| Rep entry | Smith Family Dentistry | 1420 N. Main, Suite 200 | 5125550142 |
+| Source     | Name                     | Address                 | Phone          |
+| ---------- | ------------------------ | ----------------------- | -------------- |
+| Registry   | SMITH FAMILY DENTAL PLLC | 1420 N Main St Ste 200  | (512) 555-0142 |
+| Places API | Smith Family Dental      | 1420 North Main Street  | 512-555-0142   |
+| Rep entry  | Smith Family Dentistry   | 1420 N. Main, Suite 200 | 5125550142     |
 
 Exact matching finds nothing. Fuzzy matching everything against everything is
 O(n²), which at 22,772 records is about 259 million comparisons per pass.
@@ -58,12 +58,31 @@ From the CI run of `bench/synthetic.sql` on `postgres:16`:
 | Pairs a naive comparison would check          | 199,990,000                                                                                       |
 | Candidate rows after blocking                 | 7,304, which is 4,104 distinct pairs (many are reached by both the phone key and the address key) |
 | Planted duplicates reachable through blocking | 4,000 of 4,000                                                                                    |
-| Time to score every candidate pair            | about 80 ms on the CI runner                                                                           |
+| Time to score every candidate pair            | about 80 ms on the CI runner                                                                      |
 | Auto-merged                                   | 3,200, every one a planted duplicate (precision 1.00)                                             |
 | Sent to the review queue                      | 800                                                                                               |
 | Left distinct                                 | 104                                                                                               |
 
-What that does and does not show. The 800 in review are exactly the one in five planted duplicates whose phone number was dropped. Without a phone match, name, street number and coordinates can score at most 0.70, below the 0.85 auto-merge line, so a duplicate with no phone always goes to a human. That is the threshold doing what it was set to do, not a recall figure for real data. The 104 pairs left distinct are different businesses sharing a street number and ZIP, and none of them merged. Synthetic rows prove the blocking reduction and the speed. They cannot tell you how often real spellings fool the scorer, which is what the review queue is for.
+What that does and does not show. The 800 in review are exactly the one in five planted duplicates whose phone number was dropped. Without a phone match, name, street number and coordinates can score at most 0.70, below the 0.85 auto-merge line, so a duplicate with no phone always goes to a human. That is the threshold doing what it was set to do, not a recall figure for real data. The 104 pairs left distinct are different businesses sharing a street number and ZIP, and none of them merged. Synthetic rows prove the blocking reduction and the speed. `bench/perturbed.sql`, below, shows how synthetic misspellings, abbreviations and mistyped street numbers move through the same pipeline, but a generated typo is not a real one, so neither file can tell you how often an actual spelling difference fools the scorer, which is what the review queue is for.
+
+### With misspellings
+
+`bench/synthetic.sql` never misspells anything, so `bench/perturbed.sql` runs the same 16,000-row base generator and plants 3,000 duplicates across six harder kinds, 500 each: a one-letter typo in the first word of the name, common word abbreviations with the legal suffix dropped, and a mistyped street number, each with and without a kept phone number.
+
+From the CI run of `bench/perturbed.sql` on `postgres:16`:
+
+| Kind                 | Planted | Reached by blocking | Auto-merged | Review | Left distinct or unreached | Median name similarity |
+| -------------------- | ------- | ------------------- | ----------- | ------ | -------------------------- | ---------------------- |
+| typo                 | 500     | 500                 | 500         | 0      | 0                          | 0.818                  |
+| abbrev               | 500     | 500                 | 46          | 454    | 0                          | 0.487                  |
+| typo_no_phone        | 500     | 500                 | 0           | 280    | 220                        | 0.778                  |
+| abbrev_no_phone      | 500     | 500                 | 0           | 55     | 445                        | 0.500                  |
+| street_typo          | 500     | 500                 | 500         | 0      | 0                          | 1.000                  |
+| street_typo_no_phone | 500     | 0                   | 0           | 0      | 500                        | 1.000                  |
+
+Overall: 3,000 planted, 1,046 auto-merged, 0 of those auto-merges wrong (precision 1.0000).
+
+A single misspelled letter barely moves the needle: trigram similarity stays high enough (median 0.818) that the fixed 0.55 from a kept phone (+0.30), a matching street number and postal code (+0.15), and coordinates within 50 m (+0.10) carries every one of the 500 typo pairs past the 0.85 auto-merge line, the same outcome as an unmisspelled duplicate. Abbreviating words is a harder hit to the name (median similarity falls to 0.487, below the roughly 0.78 that 0.45 weighting needs to clear auto-merge on its own), so 454 of 500 land in review instead. Drop the phone as well and the 0.30 is gone too: a typo with no phone still clears the 0.60 review floor about half the time (280 of 500), but an abbreviation with no phone mostly does not (only 55 of 500). The one kind that is not merged, not reviewed, and not even scored as distinct is a mistyped street number with a dropped phone: blocking only reaches a pair through a shared phone or a shared street number and postal code, and this kind breaks both, so all 500 vanish before scoring ever runs.
 
 ## Why blocking on street number works
 
@@ -96,28 +115,29 @@ Placeholder numbers cluster hard. If you skip this, every record with
 When two records merge, which value wins? The rule here is per-field, not
 per-record:
 
-| Field | Rule |
-|-------|------|
-| Name | Longer of the two |
-| Address | Longer of the two |
-| Phone | First valid number, kept record first, falling back to whatever exists |
-| Coordinates | Kept record's, filled from the merged record when missing |
-| Identifiers | Union; kept record wins on a shared key, never overwritten |
-| Notes | Both, concatenated, never dropped |
+| Field       | Rule                                                                   |
+| ----------- | ---------------------------------------------------------------------- |
+| Name        | Longer of the two                                                      |
+| Address     | Longer of the two                                                      |
+| Phone       | First valid number, kept record first, falling back to whatever exists |
+| Coordinates | Kept record's, filled from the merged record when missing              |
+| Identifiers | Union; kept record wins on a shared key, never overwritten             |
+| Notes       | Both, concatenated, never dropped                                      |
 
 Picking a winning record and discarding the loser loses data. Picking per field
 does not.
 
 ## Files
 
-| Path | Contents |
-|------|----------|
-| `sql/01-normalize.sql` | Normalization functions and generated columns |
-| `sql/02-blocking.sql` | Candidate pair generation |
-| `sql/03-scoring.sql` | Weighted similarity and thresholds |
-| `sql/04-merge.sql` | Per-field survivorship and merge log |
-| `bench/synthetic.sql` | Synthetic benchmark measuring blocking and scoring at size |
-| `tests/resolution-tests.sql` | Assertions, including the cases that used to break |
+| Path                         | Contents                                                                                      |
+| ---------------------------- | --------------------------------------------------------------------------------------------- |
+| `sql/01-normalize.sql`       | Normalization functions and generated columns                                                 |
+| `sql/02-blocking.sql`        | Candidate pair generation                                                                     |
+| `sql/03-scoring.sql`         | Weighted similarity and thresholds                                                            |
+| `sql/04-merge.sql`           | Per-field survivorship and merge log                                                          |
+| `bench/synthetic.sql`        | Synthetic benchmark measuring blocking and scoring at size                                    |
+| `bench/perturbed.sql`        | Benchmark measuring the same pipeline against misspelled, abbreviated and mistyped duplicates |
+| `tests/resolution-tests.sql` | Assertions, including the cases that used to break                                            |
 
 ## Running it
 
