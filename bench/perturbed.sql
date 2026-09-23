@@ -229,7 +229,7 @@ named as (
   select
     base_id, kind, postal_code, phone, latitude, longitude, rn, orig_street_no, street_name,
     case
-      when kind in ('typo', 'typo_no_phone') then bench_typo_name(name_cased, rn)
+      when kind in ('typo', 'typo_no_phone') then bench_typo_name(name_cased, rn::int)
       when kind in ('abbrev', 'abbrev_no_phone') then
         regexp_replace(
           regexp_replace(
