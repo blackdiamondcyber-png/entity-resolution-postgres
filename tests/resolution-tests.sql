@@ -70,4 +70,63 @@ begin
   raise notice 'all entity resolution assertions passed';
 end $$;
 
+-- Survivorship, tested directly against merge_locations rather than through
+-- blocking, with fresh fixture rows on a different postal code so nothing
+-- here blocks against the fixture above.
+do $$
+declare
+  keep_id uuid; drop_id uuid;
+  merged locations;
+  n int;
+begin
+  insert into locations (source, name, address, postal_code, phone, latitude, longitude, external_ids, notes)
+  values ('registry', 'Bright Smile Dental', '900 Congress Ave', '20500', '5555555555', null, null,
+          '{"npi": "111"}'::jsonb, 'Kept record note')
+  returning id into keep_id;
+
+  insert into locations (source, name, address, postal_code, phone, latitude, longitude, external_ids, notes)
+  values ('places', 'Bright Smile Dental Associates PLLC', '900 Congress Avenue, Suite 400', '20500',
+          '5122670188', 30.5, -97.5, '{"npi": "222", "yelp": "999"}'::jsonb, 'Dropped record note')
+  returning id into drop_id;
+
+  perform merge_locations(keep_id, drop_id);
+
+  select * into merged from locations where id = keep_id;
+
+  if merged.name <> 'Bright Smile Dental Associates PLLC' then
+    raise exception 'survivorship name failed: the longer name should win, got %', merged.name;
+  end if;
+
+  if merged.phone <> '5122670188' then
+    raise exception 'survivorship phone failed: a valid phone on the dropped row should beat an invalid one on the kept row, got %', merged.phone;
+  end if;
+
+  if merged.latitude <> 30.5 or merged.longitude <> -97.5 then
+    raise exception 'survivorship coordinates failed: null coordinates on the kept row should be filled from the dropped row, got % %', merged.latitude, merged.longitude;
+  end if;
+
+  if merged.external_ids ->> 'npi' <> '111' then
+    raise exception 'survivorship identifiers failed: the kept row should win on a shared key, got %', merged.external_ids ->> 'npi';
+  end if;
+
+  if merged.external_ids ->> 'yelp' <> '999' then
+    raise exception 'survivorship identifiers failed: the dropped row''s extra key should be added, got %', merged.external_ids;
+  end if;
+
+  if merged.notes !~ 'Kept record note' or merged.notes !~ 'Dropped record note' then
+    raise exception 'survivorship notes failed: both notes should be concatenated, got %', merged.notes;
+  end if;
+
+  if (select merged_into from locations where id = drop_id) <> keep_id then
+    raise exception 'the dropped row should have merged_into set to the kept row';
+  end if;
+
+  select count(*) into n from merge_log where kept_id = keep_id and merged_id = drop_id;
+  if n <> 1 then
+    raise exception 'merge_log should have exactly one row for this pair, got %', n;
+  end if;
+
+  raise notice 'all survivorship assertions passed';
+end $$;
+
 rollback;
