@@ -42,6 +42,16 @@ Trigram similarity on names, exact match on normalized phone, distance between
 coordinates. A pair above the auto-merge threshold merges. A pair in the middle
 band goes to a review queue. Below, it stays separate.
 
+## Measured at size
+
+`bench/synthetic.sql` generates a synthetic set of businesses with a known set
+of planted duplicates, written differently from their originals the way real
+sources disagree, then runs the same blocking and scoring pipeline against it
+so recall and precision can be measured against ground truth instead of
+assumed. CI runs it on every push.
+
+<!-- bench-results -->
+
 ## Why blocking on street number works
 
 The obvious blocking key is the full address, which fails because address
@@ -93,6 +103,7 @@ does not.
 | `sql/02-blocking.sql` | Candidate pair generation |
 | `sql/03-scoring.sql` | Weighted similarity and thresholds |
 | `sql/04-merge.sql` | Per-field survivorship and merge log |
+| `bench/synthetic.sql` | Synthetic benchmark measuring blocking and scoring at size |
 | `tests/resolution-tests.sql` | Assertions, including the cases that used to break |
 
 ## Running it

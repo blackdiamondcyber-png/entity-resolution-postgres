@@ -39,3 +39,6 @@ jobs:
 
       - name: Run the assertions
         run: $PSQL -f tests/resolution-tests.sql
+
+      - name: Synthetic benchmark (20,000 rows)
+        run: $PSQL -f bench/synthetic.sql
