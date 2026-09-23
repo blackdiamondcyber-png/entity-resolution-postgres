@@ -58,7 +58,7 @@ From the CI run of `bench/synthetic.sql` on `postgres:16`:
 | Pairs a naive comparison would check          | 199,990,000                                                                                       |
 | Candidate rows after blocking                 | 7,304, which is 4,104 distinct pairs (many are reached by both the phone key and the address key) |
 | Planted duplicates reachable through blocking | 4,000 of 4,000                                                                                    |
-| Time to score every candidate pair            | 79 ms on the CI runner                                                                            |
+| Time to score every candidate pair            | about 80 ms on the CI runner                                                                           |
 | Auto-merged                                   | 3,200, every one a planted duplicate (precision 1.00)                                             |
 | Sent to the review queue                      | 800                                                                                               |
 | Left distinct                                 | 104                                                                                               |
