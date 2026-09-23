@@ -42,3 +42,6 @@ jobs:
 
       - name: Synthetic benchmark (20,000 rows)
         run: $PSQL -f bench/synthetic.sql
+
+      - name: Perturbed benchmark (misspellings, abbreviations, street-number typos)
+        run: $PSQL -f bench/perturbed.sql
