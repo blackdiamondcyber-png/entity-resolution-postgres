@@ -75,11 +75,12 @@ per-record:
 
 | Field | Rule |
 |-------|------|
-| Name | Longest non-abbreviated form |
-| Phone | Most recent valid |
-| Coordinates | Highest-precision source |
-| Identifiers | Never overwritten, only added |
-| Notes | Concatenated, never dropped |
+| Name | Longer of the two |
+| Address | Longer of the two |
+| Phone | First valid number, kept record first, falling back to whatever exists |
+| Coordinates | Kept record's, filled from the merged record when missing |
+| Identifiers | Union; kept record wins on a shared key, never overwritten |
+| Notes | Both, concatenated, never dropped |
 
 Picking a winning record and discarding the loser loses data. Picking per field
 does not.

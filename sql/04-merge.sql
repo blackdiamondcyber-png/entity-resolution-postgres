@@ -19,10 +19,14 @@ begin
   update locations set
     name    = case when length(coalesce(d.name,''))    > length(coalesce(k.name,''))    then d.name    else k.name    end,
     address = case when length(coalesce(d.address,'')) > length(coalesce(k.address,'')) then d.address else k.address end,
-    phone   = coalesce(case when is_valid_nanp(k.phone) then k.phone end, d.phone, k.phone),
+    phone   = coalesce(
+                case when is_valid_nanp(k.phone) then k.phone end,
+                case when is_valid_nanp(d.phone) then d.phone end,
+                k.phone, d.phone
+              ),
     latitude  = coalesce(k.latitude,  d.latitude),
     longitude = coalesce(k.longitude, d.longitude),
-    external_ids = k.external_ids || d.external_ids,
+    external_ids = d.external_ids || k.external_ids,
     notes = nullif(concat_ws(E'\n', nullif(k.notes,''), nullif(d.notes,'')), '')
   where id = p_keep;
 
