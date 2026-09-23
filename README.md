@@ -73,16 +73,16 @@ From the CI run of `bench/perturbed.sql` on `postgres:16`:
 
 | Kind                 | Planted | Reached by blocking | Auto-merged | Review | Left distinct or unreached | Median name similarity |
 | -------------------- | ------- | ------------------- | ----------- | ------ | -------------------------- | ---------------------- |
-| typo                 | 500     | 500                 | 500         | 0      | 0                          | 0.818                  |
+| typo                 | 500     | 500                 | 500         | 0      | 0                          | 0.829                  |
 | abbrev               | 500     | 500                 | 46          | 454    | 0                          | 0.487                  |
-| typo_no_phone        | 500     | 500                 | 0           | 280    | 220                        | 0.778                  |
+| typo_no_phone        | 500     | 500                 | 0           | 443    | 57                         | 0.829                  |
 | abbrev_no_phone      | 500     | 500                 | 0           | 55     | 445                        | 0.500                  |
 | street_typo          | 500     | 500                 | 500         | 0      | 0                          | 1.000                  |
 | street_typo_no_phone | 500     | 0                   | 0           | 0      | 500                        | 1.000                  |
 
 Overall: 3,000 planted, 1,046 auto-merged, 0 of those auto-merges wrong (precision 1.0000).
 
-A single misspelled letter barely moves the needle: trigram similarity stays high enough (median 0.818) that the fixed 0.55 from a kept phone (+0.30), a matching street number and postal code (+0.15), and coordinates within 50 m (+0.10) carries every one of the 500 typo pairs past the 0.85 auto-merge line, the same outcome as an unmisspelled duplicate. Abbreviating words is a harder hit to the name (median similarity falls to 0.487, below the roughly 0.78 that 0.45 weighting needs to clear auto-merge on its own), so 454 of 500 land in review instead. Drop the phone as well and the 0.30 is gone too: a typo with no phone still clears the 0.60 review floor about half the time (280 of 500), but an abbreviation with no phone mostly does not (only 55 of 500). The one kind that is not merged, not reviewed, and not even scored as distinct is a mistyped street number with a dropped phone: blocking only reaches a pair through a shared phone or a shared street number and postal code, and this kind breaks both, so all 500 vanish before scoring ever runs.
+How to read it. With a kept phone (+0.30), a matching street number and postal code (+0.15) and coordinates within 50 m (+0.10), a pair starts at 0.55, so the name needs a trigram similarity of only 0.667 to reach the 0.85 auto-merge line. A one-letter typo stays well above that (median 0.829), and all 500 merge. Abbreviations pull the median down to 0.487, so 454 of 500 go to review instead. Without the phone a pair starts at 0.25, and reaching even the 0.60 review floor takes a similarity of 0.778: 443 of 500 typos still make it, but only 55 of 500 abbreviations do, and the rest are left as separate businesses with nobody looking at them. A mistyped street number with no phone is never compared at all. Blocking only pairs records that share a phone, or a street number and postal code, and this kind breaks both, so all 500 are missed before scoring runs. Blocking on name trigrams within a postal code would reach them; it is not in this pipeline.
 
 ## Why blocking on street number works
 
