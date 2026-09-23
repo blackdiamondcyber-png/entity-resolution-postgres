@@ -50,7 +50,20 @@ sources disagree, then runs the same blocking and scoring pipeline against it
 so recall and precision can be measured against ground truth instead of
 assumed. CI runs it on every push.
 
-<!-- bench-results -->
+From the CI run of `bench/synthetic.sql` on `postgres:16`:
+
+| Measure                                       | Result                                                                                            |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Rows                                          | 20,000: 16,000 businesses plus 4,000 planted duplicates written differently                       |
+| Pairs a naive comparison would check          | 199,990,000                                                                                       |
+| Candidate rows after blocking                 | 7,304, which is 4,104 distinct pairs (many are reached by both the phone key and the address key) |
+| Planted duplicates reachable through blocking | 4,000 of 4,000                                                                                    |
+| Time to score every candidate pair            | 79 ms on the CI runner                                                                            |
+| Auto-merged                                   | 3,200, every one a planted duplicate (precision 1.00)                                             |
+| Sent to the review queue                      | 800                                                                                               |
+| Left distinct                                 | 104                                                                                               |
+
+What that does and does not show. The 800 in review are exactly the one in five planted duplicates whose phone number was dropped. Without a phone match, name, street number and coordinates can score at most 0.70, below the 0.85 auto-merge line, so a duplicate with no phone always goes to a human. That is the threshold doing what it was set to do, not a recall figure for real data. The 104 pairs left distinct are different businesses sharing a street number and ZIP, and none of them merged. Synthetic rows prove the blocking reduction and the speed. They cannot tell you how often real spellings fool the scorer, which is what the review queue is for.
 
 ## Why blocking on street number works
 
