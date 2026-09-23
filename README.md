@@ -6,7 +6,7 @@ Deduplicating business records that arrive from several sources and never agree
 with each other, using nothing but Postgres and pg_trgm.
 
 I merged a federal provider registry, a places API, and hand-entered records
-into 22,494 resolved business locations. This is the part that made
+into 22,772 resolved business locations. This is the part that made
 it work.
 
 ## The problem
@@ -20,7 +20,7 @@ The same business shows up three times and looks different every time:
 | Rep entry | Smith Family Dentistry | 1420 N. Main, Suite 200 | 5125550142 |
 
 Exact matching finds nothing. Fuzzy matching everything against everything is
-O(n²), which at 22,000 records is 242 million comparisons per pass.
+O(n²), which at 22,772 records is about 259 million comparisons per pass.
 
 ## The approach
 
