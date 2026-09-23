@@ -136,3 +136,5 @@ locations became one, you need the answer.
 ## License
 
 MIT.
+
+More of my work: [erik-pearson-portfolio.vercel.app](https://erik-pearson-portfolio.vercel.app). Contact: [LinkedIn](https://www.linkedin.com/in/erikpearson2).
