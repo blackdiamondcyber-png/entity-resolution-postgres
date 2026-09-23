@@ -229,7 +229,10 @@ named as (
   select
     base_id, kind, postal_code, phone, latitude, longitude, rn, orig_street_no, street_name,
     case
-      when kind in ('typo', 'typo_no_phone') then bench_typo_name(name_cased, rn::int)
+      -- rn / 6, not rn: the kind is rn % 6, so passing rn would tie the edit
+      -- (rn % 3) to the kind, giving typo only substitutions and
+      -- typo_no_phone only swaps. rn / 6 spreads all three edits across both.
+      when kind in ('typo', 'typo_no_phone') then bench_typo_name(name_cased, (rn / 6)::int)
       when kind in ('abbrev', 'abbrev_no_phone') then
         regexp_replace(
           regexp_replace(
