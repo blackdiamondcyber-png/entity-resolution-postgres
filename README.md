@@ -6,7 +6,7 @@ Deduplicating business records that arrive from several sources and never agree
 with each other, using nothing but Postgres and pg_trgm.
 
 I merged a federal provider registry, a places API, and hand-entered records
-into roughly 22,000 deduplicated business locations. This is the part that made
+into 22,494 resolved business locations. This is the part that made
 it work.
 
 ## The problem
