@@ -56,18 +56,18 @@ assumed. CI runs it on every push.
 
 From the CI run of `bench/synthetic.sql` on `postgres:16`:
 
-| Measure                                       | Result                                                                                            |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| Rows                                          | 20,000: 16,000 businesses plus 4,000 planted duplicates written differently                       |
-| Pairs a naive comparison would check          | 199,990,000                                                                                       |
-| Candidate rows after blocking                 | 7,304, which is 4,104 distinct pairs (many are reached by both the phone key and the address key) |
-| Planted duplicates reachable through blocking | 4,000 of 4,000                                                                                    |
-| Time to score every candidate pair            | 60 to 83 ms across recent CI runs                                                                 |
-| Auto-merged                                   | 3,200, every one a planted duplicate (precision 1.00)                                             |
-| Sent to the review queue                      | 800                                                                                               |
-| Left distinct                                 | 104                                                                                               |
+| Measure                                       | Result                                                                                      |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Rows                                          | 20,000: 16,000 businesses plus 4,000 planted duplicates written differently                 |
+| Pairs a naive comparison would check          | 199,990,000                                                                                 |
+| Candidate rows after blocking                 | 11,302, which is 4,102 distinct pairs (many are reached by more than one of the three keys) |
+| Planted duplicates reachable through blocking | 4,000 of 4,000                                                                              |
+| Time to block and score every candidate pair  | 1.14 s                                                                                      |
+| Auto-merged                                   | 3,200, every one a planted duplicate (precision 1.00)                                       |
+| Sent to the review queue                      | 800                                                                                         |
+| Left distinct                                 | 102                                                                                         |
 
-What that does and does not show. The 800 in review are exactly the one in five planted duplicates whose phone number was dropped. Without a phone match, name, street number and coordinates can score at most 0.70, below the 0.85 auto-merge line, so a duplicate with no phone always goes to a human. That is the threshold doing what it was set to do, not a recall figure for real data. The 104 pairs left distinct are different businesses sharing a street number and ZIP, and none of them merged. Synthetic rows prove the blocking reduction and the speed. `bench/perturbed.sql`, below, shows how synthetic misspellings, abbreviations and mistyped street numbers move through the same pipeline, but a generated typo is not a real one, so neither file can tell you how often an actual spelling difference fools the scorer. The real-data run below measures that.
+What that does and does not show. The 800 in review are exactly the one in five planted duplicates whose phone number was dropped. Without a phone match, name, street number and coordinates can score at most 0.70, below the 0.85 auto-merge line, so a duplicate with no phone always goes to a human. That is the threshold doing what it was set to do, not a recall figure for real data. The 102 pairs left distinct are different businesses that a block paired, and none of them merged. Blocking and scoring took 60 to 83 ms before the proximity block and the every-name comparison were added; they cost about a second at this size. Synthetic rows prove the blocking reduction and the speed. `bench/perturbed.sql`, below, shows how synthetic misspellings, abbreviations and mistyped street numbers move through the same pipeline, but a generated typo is not a real one, so neither file can tell you how often an actual spelling difference fools the scorer. The real-data run below measures that.
 
 ### With misspellings
 
@@ -77,16 +77,18 @@ From the CI run of `bench/perturbed.sql` on `postgres:16`:
 
 | Kind                 | Planted | Reached by blocking | Auto-merged | Review | Left distinct or unreached | Median name similarity |
 | -------------------- | ------- | ------------------- | ----------- | ------ | -------------------------- | ---------------------- |
-| typo                 | 500     | 500                 | 500         | 0      | 0                          | 0.829                  |
-| abbrev               | 500     | 500                 | 46          | 454    | 0                          | 0.487                  |
-| typo_no_phone        | 500     | 500                 | 0           | 443    | 57                         | 0.829                  |
-| abbrev_no_phone      | 500     | 500                 | 0           | 55     | 445                        | 0.500                  |
+| typo                 | 500     | 500                 | 500         | 0      | 0                          | 0.824                  |
+| abbrev               | 500     | 500                 | 57          | 443    | 0                          | 0.487                  |
+| typo_no_phone        | 500     | 500                 | 0           | 500    | 0                          | 0.829                  |
+| abbrev_no_phone      | 500     | 500                 | 0           | 261    | 239                        | 0.500                  |
 | street_typo          | 500     | 500                 | 500         | 0      | 0                          | 1.000                  |
-| street_typo_no_phone | 500     | 0                   | 0           | 0      | 500                        | 1.000                  |
+| street_typo_no_phone | 500     | 500                 | 0           | 500    | 0                          | 1.000                  |
 
-Overall: 3,000 planted, 1,046 auto-merged, 0 of those auto-merges wrong (precision 1.0000).
+Overall: 3,000 planted, 1,057 auto-merged, 0 of those auto-merges wrong (precision 1.0000).
 
-How to read it. With a kept phone (+0.30), a matching street number and postal code (+0.15) and coordinates within 50 m (+0.10), a pair starts at 0.55, so the name needs a trigram similarity of only 0.667 to reach the 0.85 auto-merge line. A one-letter typo stays well above that (median 0.829), and all 500 merge. Abbreviations pull the median down to 0.487, so 454 of 500 go to review instead. Without the phone a pair starts at 0.25, and reaching even the 0.60 review floor takes a similarity of 0.778: 443 of 500 typos still make it, but only 55 of 500 abbreviations do, and the rest are left as separate businesses with nobody looking at them. A mistyped street number with no phone is never compared at all. Blocking only pairs records that share a phone, or a street number and postal code, and this kind breaks both, so all 500 are missed before scoring runs. Blocking on name trigrams within a postal code would reach them; it is not in this pipeline.
+How to read it. With a kept phone (+0.30), a matching street number and postal code (+0.15) and coordinates within 50 m (+0.10), a pair starts at 0.55, so the name needs a trigram similarity of only 0.667 to reach the 0.85 auto-merge line. A one-letter typo stays well above that (median 0.824), and all 500 merge. Abbreviations pull the median down to 0.487, so 443 of 500 go to review instead. Without the phone a pair starts at 0.25, and reaching the 0.60 review floor on score alone takes a similarity of 0.778. The same-place rule catches what falls short: a duplicate within 150 m whose names reach 0.5 goes to review anyway, so all 500 typos get there, and 261 of 500 abbreviations do. The other 239 abbreviations fall below 0.5 and are left as separate businesses. A mistyped street number with no phone breaks both the phone and the address block, and the proximity block now reaches all 500 of them.
+
+Before the fixes the kinds without a phone did much worse: 443 typos and 55 abbreviations reached review, and the 500 mistyped street numbers were never compared at all. The seeded generator also produced slightly different rows after this change (the typo median, which is computed from names alone, moved from 0.829 to 0.824), so small differences against older runs are not all the pipeline's doing.
 
 ## On real data
 
