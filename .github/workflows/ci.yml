@@ -45,3 +45,12 @@ jobs:
 
       - name: Perturbed benchmark (misspellings, abbreviations, street-number typos)
         run: $PSQL -f bench/perturbed.sql
+
+      # Last on purpose: the steps above all roll back, this one commits 1,419
+      # real records, then checks the published real-data figures against the
+      # labels in realdata/labels.
+      - name: Real data (NPPES and OpenStreetMap, Twin Cities), scored against labels
+        run: |
+          $PSQL -f realdata/load.sql
+          $PSQL -f realdata/load-labels.sql
+          $PSQL -f realdata/metrics.sql

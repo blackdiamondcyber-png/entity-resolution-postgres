@@ -1,0 +1,719 @@
+osm_key,nppes_key,pass1,pass2,label,reason
+osm:node/10134443644,nppes:1225696925,different,different,different,other practice elsewhere; different phone
+osm:node/10134443644,nppes:1518033695,same,same,same,same address and phone; Park Dental
+osm:node/10134443644,nppes:1578606778,different,different,different,co-located specialists; different phone
+osm:node/10134443644,nppes:1689732133,different,different,different,Park Dental at another site
+osm:node/10134443644,nppes:1710001284,different,different,different,co-located orthodontist; different phone
+osm:node/10245351037,nppes:1356854442-pl4,different,different,different,different name 131 m away
+osm:node/10245351037,nppes:1609718311,same,same,same,same phone 74 m away; dentist PC
+osm:node/10245351037,nppes:1821493396,different,different,different,different name and phone
+osm:node/10597376675,nppes:1255870531,different,different,different,different name 1 km away
+osm:node/10597376675,nppes:1457969636,different,different,different,orthodontist 104 m away; different name
+osm:node/10597376675,nppes:1700534138,different,different,different,Metro Dentalcare 168 m away; different name
+osm:node/10597376685,nppes:1073727293,unsure,unsure,unsure,generic OSM name 71 m away; no phone or address to link
+osm:node/10597376689,nppes:1073727293,different,different,different,different name; street number 8785 vs 8775
+osm:node/10604807800,nppes:1316913411,unsure,different,unsure,adjudicated: rule 4; OSM has no address or phone and the registry record no coordinate; rule 1 says a missing coordinate is no evidence
+osm:node/10604807800,nppes:1497403810,unsure,different,unsure,adjudicated: rule 4; OSM has no address or phone and the registry record no coordinate; rule 1 says a missing coordinate is no evidence
+osm:node/10604807800,nppes:1689324311,unsure,different,unsure,adjudicated: rule 4; OSM has no address or phone and the registry record no coordinate; rule 1 says a missing coordinate is no evidence
+osm:node/10604807800,nppes:1881841021,unsure,different,unsure,adjudicated: rule 4; OSM has no address or phone and the registry record no coordinate; rule 1 says a missing coordinate is no evidence
+osm:node/10604807800,nppes:1891443263,unsure,different,unsure,adjudicated: rule 4; OSM has no address or phone and the registry record no coordinate; rule 1 says a missing coordinate is no evidence
+osm:node/10652451249,nppes:1255490389,same,same,same,DBA matches 33 m away
+osm:node/10652451249,nppes:1619451192,different,different,different,different name 232 m away
+osm:node/10681831525,nppes:1023681152,different,different,different,different name; location unknown
+osm:node/10681831525,nppes:1043715204,different,different,different,different name 53 m away
+osm:node/10681831525,nppes:1043715204-pl1,different,different,different,different name 53 m away
+osm:node/10681831525,nppes:1578505152-pl2,different,different,different,chain; OSM point is at the Pilot Knob site (row 26)
+osm:node/10681831525,nppes:1578505152-pl4,different,different,different,chain; OSM point is at the Pilot Knob site (row 26)
+osm:node/10681831525,nppes:1578505152-pl6,same,same,same,same name 65 m away
+osm:node/10737423667,nppes:1124198635,different,different,different,different name
+osm:node/10737423667,nppes:1386715704,same,same,same,exact name; single practice; registry record not geocoded
+osm:node/10737423667,nppes:1619496700,different,different,different,orthodontist 87 m away; different name
+osm:node/11007656046,nppes:1043365992,different,different,different,different name 92 m away
+osm:node/11007656046,nppes:1255442620,different,different,different,different name 1.8 km away
+osm:node/11007656046,nppes:1386489318,different,different,different,different name 92 m away
+osm:node/11007656046,nppes:1689732133,different,different,different,Park Dental in Prior Lake; OSM names Lakeville
+osm:node/11104668358,nppes:1588899199,different,different,different,different name 68 m away
+osm:node/11104668359,nppes:1588899199,same,same,same,same name 33 m away
+osm:node/11166194880,nppes:1497991798,different,different,different,different name address and phone
+osm:node/11166194880,nppes:1619287562,different,different,different,different name and city
+osm:node/11166194880,nppes:1871755991,different,different,different,different name and phone 272 m away
+osm:node/11215325078,nppes:1518125160,unsure,unsure,unsure,adjacent suites 230 and 235; dentist PC vs practice name; no phone
+osm:node/11332270945,nppes:1679618326,different,different,different,different orthodontist 922 m away
+osm:node/11332270945,nppes:1952582702,same,same,same,DBA Ekim Orthodontics 73 m away
+osm:node/11332270946,nppes:1952582702,different,different,different,different name 91 m away
+osm:node/11472428069,nppes:1023664935,same,same,same,DBA Lakes Orthodontics 83 m away
+osm:node/11472428069,nppes:1023681152,different,different,different,different name; location unknown
+osm:node/11472428069,nppes:1154971380-pl1,different,different,different,different name 148 m away
+osm:node/11472428069,nppes:1235429267,different,different,different,different name 148 m away
+osm:node/11472428069,nppes:1245393230,same,same,same,Lakes Orthodontic Associates 83 m away
+osm:node/11472428069,nppes:1255974325-pl4,same,same,same,same address and phone as Lakes Orthodontics; probable acquisition
+osm:node/11472428069,nppes:1508132663,different,different,different,different name 240 m away
+osm:node/11472428069,nppes:1619065539,different,different,different,different name 240 m away
+osm:node/11472428069,nppes:1730782467,different,different,different,different name and city
+osm:node/11686430903,nppes:1932768157,unsure,same,unsure,adjudicated: rule 2c needs a shared phone to tie a dentist's PLLC to a practice name; OSM has none
+osm:node/11711817393,nppes:1023681152,different,different,different,different name; location unknown
+osm:node/11711817393,nppes:1326796764,different,different,different,different name 207 m away
+osm:node/11777821189,nppes:1841417003,different,different,different,Town Dental at a different Chaska address
+osm:node/11780026077,nppes:1245315829,different,different,different,different name and address
+osm:node/11780026077,nppes:1528997830,same,same,same,same address; dentist PC with Town Dental phone (rows 58 59)
+osm:node/11780026077,nppes:1639398886,same,same,same,same address; Town Dental
+osm:node/11780026077,nppes:1962460881,same,same,same,same address; Town Dental
+osm:node/11852879266,nppes:1114207362,same,same,same,same address and suite; names match
+osm:node/1188081610,nppes:1245844588,different,different,different,different name 66 m away
+osm:node/11944869727,nppes:1053127852,different,different,different,different suite name and phone
+osm:node/11944869727,nppes:1063887719,different,different,different,different suite name and phone
+osm:node/11944869727,nppes:1831963487,same,same,same,same suite and phone; dentist PC
+osm:node/11968918163,nppes:1417447210,same,same,same,same address and suite; names match
+osm:node/11968918163,nppes:1417447210-pl1,different,different,different,second site 794 m away
+osm:node/11988962361,nppes:1316913411,different,different,different,Metro Dentalcare in Lakeville
+osm:node/11988962361,nppes:1548659824,different,different,different,different name 244 m away
+osm:node/11988962361,nppes:1881841021,different,different,different,Metro Dentalcare in Prior Lake
+osm:node/11988962361,nppes:1891443263,same,same,same,same address and suite; DBA matches
+osm:node/11988975533,nppes:1154989507,same,same,same,street number typo 9931 vs 9939; same suite 107 and name
+osm:node/12020737355,nppes:1255870531,same,same,same,same address and suite; names match
+osm:node/12029268611,nppes:1023681152,different,different,different,Dunn Orthodontics other site; OSM is at Pine Arbor (row 74)
+osm:node/12029268611,nppes:1023681152-pl1,same,same,same,DBA Dunn Orthodontics 65 m away
+osm:node/12029268611,nppes:1114333986,different,different,different,different name 65 m away
+osm:node/12029268611,nppes:1215673454,different,different,different,different name 65 m away
+osm:node/12029268611,nppes:1427623966,different,different,different,different name 78 m away
+osm:node/12029268611,nppes:1720647589,different,different,different,different name 65 m away
+osm:node/12029268613,nppes:1023681152-pl1,different,different,different,different name 63 m away
+osm:node/12029268613,nppes:1114333986,different,different,different,different suite phone and name
+osm:node/12029268613,nppes:1215673454,same,different,different,adjudicated: rule 2c; Proper Sleep East Metro names a different business even with Lindgren's suite and phone
+osm:node/12029268613,nppes:1427623966,different,different,different,different name 76 m away
+osm:node/12029268613,nppes:1720647589,same,same,same,Lindgren Dental Care 63 m away
+osm:node/12030487427,nppes:1255491866,different,different,different,general dentist; OSM names periodontists
+osm:node/12030487427,nppes:1447193297-pl1,different,different,different,different name 99 m away
+osm:node/12030487427,nppes:1578211991,different,different,different,different name 138 m away
+osm:node/12030487427,nppes:1801068358,different,different,different,different name 99 m away
+osm:node/12032201393,nppes:1255491866,different,different,different,different name 180 m away
+osm:node/12032201393,nppes:1316913411,different,different,different,Metro Dentalcare in Lakeville; OSM is in Cottage Grove
+osm:node/12032201393,nppes:1447193297-pl1,different,different,different,different name 220 m away
+osm:node/12032201393,nppes:1497403810,different,different,different,Metro Dentalcare in Brooklyn Center; OSM is in Cottage Grove
+osm:node/12032201393,nppes:1578211991,same,same,same,Metro Dentalcare Cottage Grove 54 m away
+osm:node/12032201393,nppes:1689324311,different,different,different,Metro Dentalcare in Maple Grove; OSM is in Cottage Grove
+osm:node/12032201393,nppes:1801068358,different,different,different,different name 220 m away
+osm:node/12032201393,nppes:1881841021,different,different,different,Metro Dentalcare in Prior Lake; OSM is in Cottage Grove
+osm:node/12032201393,nppes:1891443263,different,different,different,Metro Dentalcare in Woodbury; OSM is in Cottage Grove
+osm:node/12032201394,nppes:1255491866,different,different,different,different name 157 m away
+osm:node/12032201394,nppes:1447193297-pl1,different,different,different,different name 198 m away
+osm:node/12032201394,nppes:1578211991,different,different,different,Metro Dentalcare 62 m away; OSM names Park Dental
+osm:node/12032201394,nppes:1689732133,different,different,different,Park Dental in Prior Lake; OSM is in Cottage Grove
+osm:node/12032201394,nppes:1801068358,different,different,different,different name 198 m away
+osm:node/12032201394,nppes:1841417003,different,different,different,different name in Chaska
+osm:node/12032201395,nppes:1255491866,different,different,different,different name 168 m away
+osm:node/12032201395,nppes:1447193297-pl1,different,different,different,different name 209 m away
+osm:node/12032201395,nppes:1578211991,different,different,different,Metro Dentalcare 57 m away; OSM names Woodgrove Dental
+osm:node/12032201395,nppes:1801068358,different,different,different,different name 209 m away
+osm:node/12099767280,nppes:1528182342,different,different,different,different name and address
+osm:node/12099767280,nppes:1780764993,same,same,same,same address and phone; Bomstad
+osm:node/12124640947,nppes:1164758199,same,same,same,same address suite and phone; DBA Boger Dental
+osm:node/12124640947,nppes:1750563227,different,different,different,different name and address
+osm:node/12134351514,nppes:1023681152,different,different,different,different name; location unknown
+osm:node/12134351514,nppes:1073376331,different,different,different,different name and phone
+osm:node/12134351514,nppes:1790905966,same,same,same,same address and phone; Zirbel orthodontics
+osm:node/12138867368,nppes:1083789929,different,different,different,different name 82 m away
+osm:node/12138867368,nppes:1194885491,same,same,same,50th and France Dental Care 81 m away
+osm:node/12138867368,nppes:1447506571,different,different,different,orthodontist; different name
+osm:node/12138867368,nppes:1548926876,different,different,different,different name 93 m away
+osm:node/12138867368,nppes:1578858643,different,different,different,different name 130 m away
+osm:node/12138867368,nppes:1821199852,different,different,different,different name 81 m away
+osm:node/12138867368,nppes:1962127464,different,different,different,endodontist; different name
+osm:node/12138867368,nppes:1992706550,different,different,different,different name 82 m away
+osm:node/12138867396,nppes:1083789929,different,different,different,different name 64 m away
+osm:node/12138867396,nppes:1194885491,different,different,different,different name 57 m away
+osm:node/12138867396,nppes:1447506571,different,different,different,orthodontist; different name
+osm:node/12138867396,nppes:1548926876,same,same,same,DBA Anderson Dentalcare 65 m away
+osm:node/12138867396,nppes:1578858643,different,different,different,different name 101 m away
+osm:node/12138867396,nppes:1821199852,different,different,different,different name 57 m away
+osm:node/12138867396,nppes:1962127464,different,different,different,endodontist; different name
+osm:node/12138867396,nppes:1992706550,different,different,different,different name 64 m away
+osm:node/12139088878,nppes:1083789929,same,same,same,same suite and phone; practice renamed Halsa Edina Dental
+osm:node/12139088878,nppes:1194885491,different,different,different,different suite name and phone
+osm:node/12139088878,nppes:1447506571,different,different,different,different suite name and phone
+osm:node/12139088878,nppes:1548926876,different,different,different,different address name and phone
+osm:node/12139088878,nppes:1578858643,different,different,different,different address name and phone
+osm:node/12139088878,nppes:1821199852,different,different,different,different suite name and phone
+osm:node/12139088878,nppes:1962127464,different,different,different,different suite name and phone
+osm:node/12139088878,nppes:1992706550,different,different,different,different suite name and phone
+osm:node/12139088880,nppes:1083789929,different,different,different,Edina 5-O Dental is not Edina Dental Care
+osm:node/12139088880,nppes:1194885491,different,different,different,different name 78 m away
+osm:node/12139088880,nppes:1447506571,different,different,different,orthodontist; different name
+osm:node/12139088880,nppes:1548926876,different,different,different,different name 90 m away
+osm:node/12139088880,nppes:1578858643,different,different,different,different name 128 m away
+osm:node/12139088880,nppes:1821199852,different,different,different,different name 78 m away
+osm:node/12139088880,nppes:1962127464,different,different,different,endodontist; different name
+osm:node/12139088880,nppes:1992706550,different,different,different,different name 78 m away
+osm:node/12139088881,nppes:1083789929,different,different,different,different name 74 m away
+osm:node/12139088881,nppes:1194885491,different,different,different,different name 73 m away
+osm:node/12139088881,nppes:1447506571,different,different,different,orthodontist; different name
+osm:node/12139088881,nppes:1548926876,different,different,different,different name 85 m away
+osm:node/12139088881,nppes:1578858643,different,different,different,different name 123 m away
+osm:node/12139088881,nppes:1821199852,different,different,different,different name 73 m away
+osm:node/12139088881,nppes:1962127464,same,same,same,Edina Endodontics 73 m away
+osm:node/12139088881,nppes:1992706550,different,different,different,different name 74 m away
+osm:node/12139088883,nppes:1083789929,different,different,different,different name 74 m away
+osm:node/12139088883,nppes:1194885491,different,different,different,different name 78 m away
+osm:node/12139088883,nppes:1447506571,same,same,same,DBA Edina Orthodontic Associates 78 m away
+osm:node/12139088883,nppes:1548926876,different,different,different,different name 91 m away
+osm:node/12139088883,nppes:1578858643,different,different,different,different name near 50th and France
+osm:node/12139088883,nppes:1821199852,different,different,different,different name near 50th and France
+osm:node/12139088883,nppes:1962127464,different,different,different,different name near 50th and France
+osm:node/12139088883,nppes:1992706550,different,different,different,different name near 50th and France
+osm:node/12139088886,nppes:1083789929,different,different,different,none at 3801 W 50th St; different names
+osm:node/12139088886,nppes:1194885491,different,different,different,none at 3801 W 50th St; different names
+osm:node/12139088886,nppes:1447506571,different,different,different,none at 3801 W 50th St; different names
+osm:node/12139088886,nppes:1548926876,different,different,different,none at 3801 W 50th St; different names
+osm:node/12139088886,nppes:1578858643,different,different,different,none at 3801 W 50th St; different names
+osm:node/12139088886,nppes:1821199852,different,different,different,none at 3801 W 50th St; different names
+osm:node/12139088886,nppes:1962127464,different,different,different,none at 3801 W 50th St; different names
+osm:node/12139088886,nppes:1992706550,different,different,different,none at 3801 W 50th St; different names
+osm:node/12139116012,nppes:1083789929,different,different,different,different suite name and phone
+osm:node/12139116012,nppes:1194885491,different,different,different,different suite name and phone
+osm:node/12139116012,nppes:1447506571,different,different,different,different suite name and phone
+osm:node/12139116012,nppes:1548926876,different,different,different,different suite name and phone
+osm:node/12139116012,nppes:1578858643,different,different,different,different suite name and phone
+osm:node/12139116012,nppes:1821199852,different,different,different,different suite name and phone
+osm:node/12139116012,nppes:1962127464,different,different,different,different suite name and phone
+osm:node/12139116012,nppes:1992706550,same,same,same,same suite; Heidi Brandenburg DDS; phones differ
+osm:node/12139116040,nppes:1083789929,different,different,different,different address and name
+osm:node/12139116040,nppes:1194885491,different,different,different,different address and name
+osm:node/12139116040,nppes:1447506571,different,different,different,different address and name
+osm:node/12139116040,nppes:1548926876,different,different,different,different address and name
+osm:node/12139116040,nppes:1578858643,same,same,same,same suite; DBA Smiles at France
+osm:node/12139116040,nppes:1821199852,different,different,different,different address and name
+osm:node/12139116040,nppes:1962127464,different,different,different,different address and name
+osm:node/12139116040,nppes:1992706550,different,different,different,different address and name
+osm:node/12167155731,nppes:1023681152,different,different,different,different name; location unknown
+osm:node/12167155731,nppes:1578505152-pl2,different,different,different,different name; location unknown
+osm:node/12167155731,nppes:1578505152-pl4,different,different,different,different name; location unknown
+osm:node/12167155731,nppes:1730271081,different,different,different,Linden Hills Dentistry 43 m away; different name
+osm:node/12188536946,nppes:1184829509,different,different,different,Lake Street Dental 22 m away; different name
+osm:node/12188536946,nppes:1861587842,different,different,different,different name 115 m away
+osm:node/12272163248,nppes:1174600621,different,different,different,different address and name
+osm:node/12272163248,nppes:1356586804,different,different,different,different address and name
+osm:node/12272163248,nppes:1396089298,different,different,different,different address and name
+osm:node/12272163248,nppes:1437847654,different,different,different,different address and name
+osm:node/12272163248,nppes:1760837041,same,same,same,same address; Gentle Dentistry matches
+osm:node/12272163248,nppes:1912303777,different,different,different,different name and address
+osm:node/12272163248,nppes:1952399685,different,different,different,different street 179 m away; OSM gives Gus Young Lane
+osm:node/12335479796,nppes:1023681152,different,different,different,different name; location unknown
+osm:node/12335479796,nppes:1174600621,different,different,different,different practice and phone
+osm:node/12335479796,nppes:1356586804,same,same,same,same suite and phone as Pan Orthodontics
+osm:node/12335479796,nppes:1396089298,same,same,same,same phone 49 m away; Pan Orthodontic Clinics
+osm:node/12335479796,nppes:1437847654,different,different,different,different practice and phone
+osm:node/12335479796,nppes:1578505152-pl2,different,different,different,different name in Hugo
+osm:node/12335479796,nppes:1578505152-pl4,different,different,different,different name in Hugo
+osm:node/12335479796,nppes:1760837041,different,different,different,different name and phone
+osm:node/12335479796,nppes:1912303777,different,different,different,different name and phone
+osm:node/12335479796,nppes:1952399685,different,different,different,different name and phone
+osm:node/12335504029,nppes:1174600621,same,same,same,same phone 65 m away; names match
+osm:node/12335504029,nppes:1356586804,different,different,different,different suite name and phone
+osm:node/12335504029,nppes:1396089298,different,different,different,different suite name and phone
+osm:node/12335504029,nppes:1437847654,same,same,same,same phone 65 m away; names match
+osm:node/12335504029,nppes:1760837041,different,different,different,different name and phone
+osm:node/12335504029,nppes:1912303777,different,different,different,different name and phone
+osm:node/12335504029,nppes:1952399685,different,different,different,different name and phone
+osm:node/12353177688,nppes:1063512234,different,different,different,different name 132 m away
+osm:node/12353177688,nppes:1447350509,different,different,different,different name 132 m away
+osm:node/12353177688,nppes:1518616614,different,different,different,different name 132 m away
+osm:node/12353177688,nppes:1598865651,different,different,different,different name 132 m away
+osm:node/12353177688,nppes:1639815434,different,different,different,different name 132 m away
+osm:node/12353177688,nppes:1679673867,different,different,different,different name 132 m away
+osm:node/12353177688,nppes:1720188998,different,different,different,different name 132 m away
+osm:node/12353177688,nppes:1861140501,different,different,different,different name 132 m away
+osm:node/12516572195,nppes:1053791319,different,different,different,different name 186 m away
+osm:node/12516572195,nppes:1982007803,same,same,same,same address and suite; names match
+osm:node/12569712465,nppes:1033351457,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1043429970,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1073063103,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1083676944,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1104272939,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1124677133,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1164040457,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1346649712,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1447372859,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1477170108-pl4,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1538830005,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1649867334,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1659039444,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1669199741,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1689741787,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1821746249,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1841656410,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1861138133,different,different,different,different downtown practice
+osm:node/12569712465,nppes:1902978893,same,same,same,same address suite and phone; names match
+osm:node/12569712465,nppes:1982775235,different,different,different,different downtown practice
+osm:node/12704116116,nppes:1972748721,different,same,different,adjudicated: rule 1; both records have full addresses on different streets; the distance rule applies only when one address is missing
+osm:node/12729435294,nppes:1952569220,different,different,different,different name 216 m away
+osm:node/12730027395,nppes:1902465867,same,same,same,same name 123 m away
+osm:node/12793964545,nppes:1295859676,different,different,different,different name in Lake Elmo
+osm:node/12818327001,nppes:1285350736,same,same,same,same address; Shamblott names match
+osm:node/12896072225,nppes:1023681152,different,different,different,different name
+osm:node/12897274799,nppes:1518572916,different,different,different,different name 300 m away
+osm:node/12897274799,nppes:1659881944,same,same,same,same name 41 m away
+osm:node/13063936043,nppes:1831665603,different,different,different,different name and city
+osm:node/13089392420,nppes:1295907202,same,same,same,same address; Summit Dental and Summit Dental Care
+osm:node/13143516544,nppes:1316913411,different,different,different,Metro Dentalcare elsewhere; OSM is in Eagan (row 258)
+osm:node/13143516544,nppes:1497403810,different,different,different,Metro Dentalcare elsewhere; OSM is in Eagan (row 258)
+osm:node/13143516544,nppes:1619625043,same,same,same,same phone 157 m away; Metro Dentalcare Eagan
+osm:node/13143516544,nppes:1689324311,different,different,different,Metro Dentalcare elsewhere; OSM is in Eagan (row 258)
+osm:node/13143516544,nppes:1770730954,different,different,different,another Metro Dentalcare 834 m away; different phone
+osm:node/13143516544,nppes:1841368545,different,different,different,different name 71 m away
+osm:node/13143516544,nppes:1881841021,different,different,different,Metro Dentalcare elsewhere; OSM is in Eagan (row 258)
+osm:node/13143516544,nppes:1891443263,different,different,different,Metro Dentalcare elsewhere; OSM is in Eagan (row 258)
+osm:node/13156113098,nppes:1205069358,different,different,different,same name at a different street; OSM gives Mounds View Blvd
+osm:node/13185418506,nppes:1821907783,different,different,different,different name and number on Town Square Dr
+osm:node/13265552513,nppes:1043429970,different,different,different,different downtown practice
+osm:node/13265552513,nppes:1073063103,different,different,different,different downtown practice
+osm:node/13265552513,nppes:1083676944,different,different,different,different downtown practice
+osm:node/13265552513,nppes:1104272939,different,different,different,different downtown practice
+osm:node/13265552513,nppes:1164040457,different,different,different,different downtown practice
+osm:node/13265552513,nppes:1184782617,same,same,same,same address and suite; Park Dental
+osm:node/13265552513,nppes:1346649712,different,different,different,different practice; not at 800 LaSalle
+osm:node/13265552513,nppes:1447372859,different,different,different,different practice; not at 800 LaSalle
+osm:node/13265552513,nppes:1477170108-pl4,different,different,different,different practice; not at 800 LaSalle
+osm:node/13265552513,nppes:1508476482,different,different,different,different practice; not at 800 LaSalle
+osm:node/13265552513,nppes:1649867334,different,different,different,different practice; not at 800 LaSalle
+osm:node/13265552513,nppes:1659039444,different,different,different,different practice; not at 800 LaSalle
+osm:node/13265552513,nppes:1669199741,different,different,different,different practice; not at 800 LaSalle
+osm:node/13265552513,nppes:1689732133,different,different,different,different practice; not at 800 LaSalle
+osm:node/13265552513,nppes:1821746249,different,different,different,different practice; not at 800 LaSalle
+osm:node/13265552513,nppes:1841417003,different,different,different,different practice; not at 800 LaSalle
+osm:node/13265552513,nppes:1841656410,different,different,different,different practice; not at 800 LaSalle
+osm:node/13265552513,nppes:1861138133,different,different,different,different practice; not at 800 LaSalle
+osm:node/13265552513,nppes:1871100974,different,different,different,different practice; not at 800 LaSalle
+osm:node/13265552513,nppes:1982775235,different,different,different,different practice; not at 800 LaSalle
+osm:node/13448863362,nppes:1316913411,different,different,different,OSM house number 9042 matches none of these addresses
+osm:node/13448863362,nppes:1497403810,different,different,different,OSM house number 9042 matches none of these addresses
+osm:node/13448863362,nppes:1689324311,different,different,different,OSM house number 9042 matches none of these addresses
+osm:node/13448863362,nppes:1881841021,different,different,different,OSM house number 9042 matches none of these addresses
+osm:node/13448863362,nppes:1891443263,different,different,different,OSM house number 9042 matches none of these addresses
+osm:node/13516981216,nppes:1194886630,same,same,same,same name 65 m away
+osm:node/13610640653,nppes:1184093551,different,different,different,different name 297 m away
+osm:node/13610640653,nppes:1891749362,different,different,different,Northwood Dental 267 m away; name does not match
+osm:node/13614655078,nppes:1093828261,different,different,different,different name and suite
+osm:node/13614655078,nppes:1659458974,same,same,same,same address and suite; DBA Uptown Dental
+osm:node/13614655078,nppes:1841417003,different,different,different,different name in Chaska
+osm:node/13614655078,nppes:1932206539,different,different,different,different name and suite
+osm:node/13626360295,nppes:1679182687,same,same,same,same address; DBA Holger Dental Group
+osm:node/13883833775,nppes:1558218537,different,different,different,different name 106 m away
+osm:node/13883833775,nppes:1649497025,same,same,same,York Dental 29 m away
+osm:node/13883833775,nppes:1689732133,different,different,different,Park Dental in Prior Lake
+osm:node/13883833775,nppes:1770205064,different,different,different,different name 106 m away
+osm:node/13883833775,nppes:1932012630,different,different,different,different name 106 m away
+osm:node/13942955984,nppes:1184093551,same,same,same,Eagan Smiles 67 m away
+osm:node/13965983641,nppes:1144307232,different,different,different,different name 265 m away
+osm:node/13965983641,nppes:1841656410,different,different,different,CityScape Dental at a street 1 km away
+osm:node/13967989885,nppes:1114781739,same,same,same,same address; DBA Blue Heron Dental Care
+osm:node/13967989885,nppes:1417881707,different,different,different,different name 293 m away
+osm:node/14110804612,nppes:1023173531,different,different,different,Oakridge Dental 54 m away; different name
+osm:node/14110804612,nppes:1629774138,different,different,different,Stillwater Modern Dentistry 252 m away; name does not match
+osm:node/14112398881,nppes:1023173531,different,different,different,different name 214 m away
+osm:node/14112398881,nppes:1629774138,same,same,same,same name 93 m away
+osm:node/14117084908,nppes:1629774138,different,different,different,different name 200 m away
+osm:node/14117084908,nppes:1689732133,different,different,different,Park Dental in Prior Lake; OSM is in Stillwater
+osm:node/14117084908,nppes:1841417003,different,different,different,different name in Chaska
+osm:node/1411811129,nppes:1184899106,different,different,different,different name and phone
+osm:node/1411811129,nppes:1245416403,same,same,same,same phone 34 m away; names match
+osm:node/14125364900,nppes:1043960776,same,same,same,Metro Dentalcare Roseville 141 m away; names match
+osm:node/14125364900,nppes:1255494712,different,different,different,different name
+osm:node/14125364900,nppes:1316913411,different,different,different,Metro Dentalcare elsewhere; OSM is in Roseville (row 318)
+osm:node/14125364900,nppes:1881841021,different,different,different,Metro Dentalcare elsewhere; OSM is in Roseville (row 318)
+osm:node/14125364900,nppes:1891443263,different,different,different,Metro Dentalcare elsewhere; OSM is in Roseville (row 318)
+osm:node/14143321792,nppes:1639214547,same,different,same,adjudicated: same suite and phone as Roy Krengel DDS (row 324) which matches the OSM name and phone; dentist's name is no different business (2c)
+osm:node/14143321792,nppes:1679705404,same,same,same,Krengel name and phone match; 1.7 km apart
+osm:node/14180598701,nppes:1376403113,same,same,same,same address and phone
+osm:node/14189483436,nppes:1356854442-pl3,same,same,same,Smile Orthodontics Stillwater site 104 m away
+osm:node/14189483436,nppes:1821690496,different,different,different,Smile Orthodontics in Maple Grove
+osm:node/14204036046,nppes:1851466155,same,same,same,same address; Chalet Dental names match
+osm:node/1696599650,nppes:1144717299,same,same,same,same phone 27 m away; DBA Riverbend Family Dental
+osm:node/1696599650,nppes:1619781770,same,same,same,same phone 27 m away; OSM name misspelled
+osm:node/1696695965,nppes:1144717299,different,different,different,different name and street
+osm:node/1696695965,nppes:1619781770,different,different,different,different name and street
+osm:node/1719957678,nppes:1093997546,same,same,same,same address and phone; Gentle Dentistry
+osm:node/2006887045,nppes:1689732133,different,different,different,Wood Park Dental is not Park Dental
+osm:node/2047264671,nppes:1184782542,different,different,different,different name 296 m away
+osm:node/2047264671,nppes:1245722297,different,different,different,different name 296 m away
+osm:node/2047264671,nppes:1285825729,same,same,same,Duren name and phone match; 383 m apart
+osm:node/2047264671,nppes:1326650961,different,different,different,different name and city
+osm:node/2047264671,nppes:1407325830-pl7,different,different,different,different name 296 m away
+osm:node/2047264671,nppes:1508932344,different,different,different,different name 296 m away
+osm:node/2503125447,nppes:1134807878,different,different,different,different name 275 m away
+osm:node/2503125447,nppes:1407325830-pl1,different,different,different,co-located Facial Pain Center; different phone and name
+osm:node/2503125447,nppes:1689732133,different,different,different,Park Dental in Prior Lake
+osm:node/2503125447,nppes:1730247180,same,same,same,same address; Park Dental
+osm:node/2913647859,nppes:1326023474,different,different,different,different name
+osm:node/2913647859,nppes:1578606067,different,different,different,different name
+osm:node/2913647859,nppes:1710960760,different,different,different,different name
+osm:node/2913647859,nppes:1811972292,same,same,same,Great River Dental 42 m away
+osm:node/2913647859,nppes:1841331642,different,different,different,different name 166 m away
+osm:node/3201016445,nppes:1356854442,different,different,different,Smile Orthodontics; different name and phone
+osm:node/3201016445,nppes:1447961750,same,same,same,same address and phone; Apple Tree Dental is ADT Dental
+osm:node/3201016445,nppes:1548282585,same,same,same,same address and phone; ADT Dental
+osm:node/3201016445,nppes:1699601310,different,different,different,different name and phone
+osm:node/3215276672,nppes:1104977222,same,same,same,same address; DBA Jakubas Dental
+osm:node/3497689945,nppes:1255974325-pl7,same,same,same,same address and phone; Smile Doctors acquired Lakeside
+osm:node/3497689945,nppes:1730782467,different,different,different,different name and city
+osm:node/3532499008,nppes:1730271081,same,same,same,same address and phone; DBA Linden Hills Dentistry
+osm:node/3627771163,nppes:1265948285,different,different,different,different name 168 m away
+osm:node/3627771163,nppes:1417015009,same,same,same,same address and phone; Park Dental
+osm:node/3627771163,nppes:1689732133,different,different,different,Park Dental in Prior Lake
+osm:node/3993101977,nppes:1396129433,unsure,different,different,adjudicated: rule 1; 12737 and 12775 are different street numbers and not a one-digit typo
+osm:node/4119782525,nppes:1730384280,different,different,different,different name and phone
+osm:node/4331102007,nppes:1497149496,same,same,same,street number typo 8458 vs 8454; same name
+osm:node/4621509971,nppes:1073662292,same,same,same,same address and phone; dentist PC
+osm:node/4621509971,nppes:1184829509,different,different,different,different name 2 km away
+osm:node/4621509977,nppes:1073662292,different,different,different,different street number and name
+osm:node/4751252074,nppes:1316913411,different,different,different,Metro Dentalcare in Lakeville; OSM is in Eden Prairie (row 371)
+osm:node/4751252074,nppes:1457969636,different,different,different,orthodontist 199 m away; different name
+osm:node/4751252074,nppes:1497403810,different,different,different,Metro Dentalcare elsewhere; OSM is in Eden Prairie (row 371)
+osm:node/4751252074,nppes:1689324311,different,different,different,Metro Dentalcare elsewhere; OSM is in Eden Prairie (row 371)
+osm:node/4751252074,nppes:1700534138,same,same,same,Metro Dentalcare Eden Prairie 67 m away
+osm:node/4751252074,nppes:1881841021,different,different,different,Metro Dentalcare elsewhere; OSM is in Eden Prairie (row 371)
+osm:node/4751252074,nppes:1891443263,different,different,different,Metro Dentalcare elsewhere; OSM is in Eden Prairie (row 371)
+osm:node/5287811004,nppes:1598413957,same,same,same,same address and phone; Metro Dentalcare parent
+osm:node/5287811004,nppes:1881841021,different,different,different,Metro Dentalcare in Prior Lake
+osm:node/5361754637,nppes:1194997783,same,same,same,same address and phone; dentist PC at Midwest Dental
+osm:node/5361754637,nppes:1447860523,same,same,same,same address and phone; DBA Midwest Dental
+osm:node/5361754637,nppes:1861718173,different,different,different,Midwest Dental at another site
+osm:node/547074054,nppes:1083011928,same,same,same,same address; Gentle Dentistry
+osm:node/547074088,nppes:1346462355,same,same,same,Crossings Dental Care 125 m away
+osm:node/5577469202,nppes:1083789507,unsure,unsure,unsure,name matches but 1.1 km apart; no phone to confirm
+osm:node/5577469202,nppes:1548442411,different,different,different,different name 128 m away
+osm:node/5627329557,nppes:1992822290,same,same,same,same address; DBA Southside Dental Clinic
+osm:node/5728461222,nppes:1255491866,same,same,same,Integrity Dental Care 48 m away
+osm:node/5728461222,nppes:1447193297-pl1,different,different,different,different name 90 m away
+osm:node/5728461222,nppes:1578211991,different,different,different,different name 149 m away
+osm:node/5728461222,nppes:1588005169,different,different,different,different name and city
+osm:node/5728461222,nppes:1801068358,different,different,different,different name 90 m away
+osm:node/5729081339,nppes:1023681152-pl1,different,different,different,different name 85 m away
+osm:node/5729081339,nppes:1114333986,different,different,different,different name 85 m away
+osm:node/5729081339,nppes:1215673454,different,different,different,different name 85 m away
+osm:node/5729081339,nppes:1427623966,same,same,same,DBA Pine Arbor Dental Care 82 m away
+osm:node/5729081339,nppes:1720647589,different,different,different,different name 85 m away
+osm:node/6033465437,nppes:1952569220,different,different,different,different street number name and phone
+osm:node/6236126673,nppes:1508926841,different,different,different,endodontist; different suite and phone
+osm:node/6236126673,nppes:1659554517,same,same,same,same address suite and phone; names match
+osm:node/6236126673,nppes:1902812126,different,different,different,orthodontist; different suite and phone
+osm:node/6275543772,nppes:1285757864,different,different,different,same building; different oral surgery name; no phone link
+osm:node/6275543772,nppes:1770540502,different,different,different,endodontists; different name
+osm:node/6275543772,nppes:1861914061,different,different,different,endodontists; different name
+osm:node/6391789948,nppes:1316913411,different,different,different,Metro Dentalcare in Lakeville
+osm:node/6391789948,nppes:1538112180,different,different,different,different name 367 m away
+osm:node/6391789948,nppes:1740923309,same,same,same,same address and phone; DBA matches
+osm:node/6391789948,nppes:1881841021,different,different,different,Metro Dentalcare in Prior Lake
+osm:node/6391789951,nppes:1538112180,different,different,different,different name and address
+osm:node/6391789951,nppes:1740923309,different,different,different,different name and address
+osm:node/6391789951,nppes:1760802722,different,different,different,different name and address
+osm:node/6391789951,nppes:1770190951,same,same,same,same address; DBA Bluff Creek Dental
+osm:node/6453441261,nppes:1285377820,same,same,same,Metro Dentalcare Blaine 83 m away; OSM name misspelled
+osm:node/6453441261,nppes:1336361534,different,different,different,different name 187 m away
+osm:node/6453441261,nppes:1881841021,different,different,different,Metro Dentalcare in Prior Lake
+osm:node/652952171,nppes:1255494712,different,different,different,different site; OSM is in Coon Rapids area (row 414)
+osm:node/652952171,nppes:1316913411,different,different,different,different site; OSM is in Coon Rapids area (row 414)
+osm:node/652952171,nppes:1740938166,same,same,same,same phone 156 m away; Northland Dental Partners office
+osm:node/652952171,nppes:1881841021,different,different,different,Metro Dentalcare elsewhere; OSM matches row 414
+osm:node/652952171,nppes:1891443263,different,different,different,Metro Dentalcare elsewhere; OSM matches row 414
+osm:node/6611097224,nppes:1104569839,unsure,different,different,adjudicated: rule 2; different name and different phone; nothing links them
+osm:node/6611097224,nppes:1497879951,different,different,different,orthodontic group at another site
+osm:node/6611097224,nppes:1588788053,different,different,different,orthodontic group at another site
+osm:node/6611097224,nppes:1699272427,different,different,different,HealthPartners 289 m away; different name
+osm:node/6611097224,nppes:1730822479,different,different,different,orthodontic group at another site
+osm:node/6611097224,nppes:1801043096,different,different,different,general dentistry name; OSM names an orthodontist
+osm:node/6611097224,nppes:1992820153,unsure,same,same,adjudicated: rule 1; OSM has no address and beyond 300 m both name and phone match
+osm:node/6611097229,nppes:1104569839,same,same,same,same suite and phone; Woodlake is a Metro Dentalcare affiliate
+osm:node/6611097229,nppes:1316913411,different,different,different,Metro Dentalcare at another site
+osm:node/6611097229,nppes:1497403810,different,different,different,Metro Dentalcare at another site
+osm:node/6611097229,nppes:1689324311,different,different,different,Metro Dentalcare at another site
+osm:node/6611097229,nppes:1699272427,different,different,different,HealthPartners 293 m away
+osm:node/6611097229,nppes:1801043096,same,same,same,same suite and phone; Metro Dentalcare St. Louis Park
+osm:node/6611097229,nppes:1881841021,different,different,different,Metro Dentalcare at another site
+osm:node/6611097229,nppes:1891443263,different,different,different,Metro Dentalcare at another site
+osm:node/6656004386,nppes:1104569839,different,different,different,different name 267 m away
+osm:node/6656004386,nppes:1225629017,different,different,different,HealthPartners at Como Ave
+osm:node/6656004386,nppes:1699272427,same,same,same,same address; HealthPartners
+osm:node/6656004386,nppes:1760503478,different,different,different,HealthPartners at another site
+osm:node/6656004386,nppes:1780739417,different,different,different,HealthPartners at another site
+osm:node/6656004386,nppes:1801043096,different,different,different,different name 267 m away
+osm:node/6734428577,nppes:1508080532,same,same,same,same address and suite; Stone Creek Dental
+osm:node/6734428577,nppes:1649318619,same,same,same,same suite and phone as Stone Creek Dental (row 438)
+osm:node/6734428577,nppes:1770190951,different,different,different,different name and address
+osm:node/6829122522,nppes:1447416607,same,same,same,same address and phone; Isles Dental
+osm:node/6829122522,nppes:1942018825,same,same,same,same address and phone; Isles Dental
+osm:node/6835960221,nppes:1023681152,different,different,different,different name
+osm:node/6835960221,nppes:1356854442,same,same,same,street number typo 2214 vs 2224; DBA Sm:)e Ortho
+osm:node/6835960221,nppes:1356854442-pl4,different,different,different,Smile Orthodontics at another site
+osm:node/6835960221,nppes:1447961750,different,different,different,different practice at 2232 Hennepin
+osm:node/6835960221,nppes:1548282585,different,different,different,different practice at 2232 Hennepin
+osm:node/6835960221,nppes:1699601310,different,different,different,different practice at 2232 Hennepin
+osm:node/6972451704,nppes:1689732133,different,different,different,different name and city
+osm:node/6972451704,nppes:1841417003,different,different,different,different name and city
+osm:node/7089810773,nppes:1053481010,same,different,same,adjudicated: same address and phone as Pioneer Dental (row 452); old and new entity (2c)
+osm:node/7089810773,nppes:1992083125,same,same,same,Pioneer Dental 142 m away
+osm:node/7129231770,nppes:1225178361,same,same,same,DBA Minnesota Dental Group; same building
+osm:node/7129231770,nppes:1780902080,same,same,same,DBA Minnesota Dental Group; same building
+osm:node/7137228124,nppes:1194198309,same,same,same,Champlin Dentistry 98 m away
+osm:node/7137228124,nppes:1528133782,different,different,different,different name 229 m away
+osm:node/7147743959,nppes:1699838011,different,different,different,general dentist; different name and phone
+osm:node/7147743967,nppes:1043642135,different,different,different,different address and name
+osm:node/7147743967,nppes:1194453951,same,same,same,same address; Como Park Dentistry
+osm:node/7147743967,nppes:1407923733,different,different,different,different address and name
+osm:node/7147762888,nppes:1023681152,different,different,different,different name
+osm:node/7147762888,nppes:1043642135,different,different,different,co-located general dentist; different phone
+osm:node/7147762888,nppes:1194453951,different,different,different,different address and name
+osm:node/7147762888,nppes:1407923733,same,same,same,same address and phone; DBA Thayer Orthodontics
+osm:node/7147762889,nppes:1043642135,same,same,same,same address and phone; names match
+osm:node/7147762889,nppes:1194453951,different,different,different,different address and name
+osm:node/7147762889,nppes:1407923733,different,different,different,co-located orthodontist; different phone
+osm:node/7156640350,nppes:1023681152,different,different,different,different name
+osm:node/7156640350,nppes:1578505152-pl2,different,different,different,Minnesota Orthodontics in Hugo; OSM is in Rogers (row 471)
+osm:node/7156640350,nppes:1578505152-pl4,different,different,different,Minnesota Orthodontics in Hugo; OSM is in Rogers (row 471)
+osm:node/7156640350,nppes:1619496700,same,same,same,Rogers Minnesota Orthodontics 45 m away; central phone
+osm:node/7168431321,nppes:1003231713,same,same,same,same address; names match
+osm:node/7170036800,nppes:1003392739,same,same,same,same address and suite; names match
+osm:node/7170492212,nppes:1003654104,different,different,different,different name 65 m away
+osm:node/7170492212,nppes:1134446370,same,same,same,Brite Dental 65 m away; names match; phones differ
+osm:node/7170492212,nppes:1255249470,unsure,different,different,adjudicated: rule 2; placeholder name and a different phone; nothing links it to Brite Dental Center
+osm:node/7170492212,nppes:1528805553,different,different,different,different name 65 m away
+osm:node/7176583044,nppes:1396483996,same,same,same,same address and unit; names match
+osm:node/7201827393,nppes:1003392739-pl1,different,different,different,different name; OSM names Dr Stoddard
+osm:node/7201827393,nppes:1437275039,different,different,different,different name; OSM names Dr Stoddard
+osm:node/7201827393,nppes:1710442413,different,different,different,different name; OSM names Dr Stoddard
+osm:node/7201827393,nppes:1720697808,different,different,different,different name; OSM names Dr Stoddard
+osm:node/7201827393,nppes:1831665603,different,different,different,different name; OSM names Dr Stoddard
+osm:node/7201827393,nppes:1952287146,different,different,different,different name; OSM names Dr Stoddard
+osm:node/7201827394,nppes:1003392739-pl1,different,different,different,different name and address
+osm:node/7201827394,nppes:1437275039,same,same,same,same address and suite 201; Jensen and Jensen
+osm:node/7201827394,nppes:1710442413,different,different,different,different name
+osm:node/7201827394,nppes:1720697808,different,different,different,different name
+osm:node/7201827394,nppes:1952287146,different,different,different,different name
+osm:node/7201827396,nppes:1003392739-pl1,different,different,different,different name
+osm:node/7201827396,nppes:1437275039,different,different,different,different name
+osm:node/7201827396,nppes:1710442413,unsure,different,unsure,adjudicated: rule 4; an orthodontist's personal name vs an orthodontic brand at one address with no phone
+osm:node/7201827396,nppes:1720697808,different,different,different,different name 244 m away
+osm:node/7201827396,nppes:1952287146,different,different,different,different name 244 m away
+osm:node/7202107156,nppes:1093445082,same,same,same,same address and phone; names match
+osm:node/7205080255,nppes:1518054766,same,different,same,adjudicated: rule 2c; a dentists' professional association sharing Franco and Associates' address and phone
+osm:node/7205080255,nppes:1649782756,same,same,same,same address and phone; Franco
+osm:node/7360527133,nppes:1548442411,same,same,same,Gentle Dentistry 56 m away
+osm:node/7360563647,nppes:1477659050,different,different,different,different dentist's name 15 m away
+osm:node/747615453,nppes:1043955412,different,different,different,different name 76 m away
+osm:node/747615453,nppes:1174706865,different,unsure,different,adjudicated: rule 1; both records have full addresses on different streets 1.5 km apart
+osm:node/747615453,nppes:1831528447,different,different,different,different name 76 m away
+osm:node/765261090,nppes:1538112180,same,same,same,Chanhassen Dental 33 m away
+osm:node/765261090,nppes:1740923309,different,different,different,different name
+osm:node/765261090,nppes:1760802722,different,different,different,different name
+osm:node/772369155,nppes:1477170108-pl3,different,different,different,different name
+osm:node/772369155,nppes:1508514969,different,different,different,different name
+osm:node/773059092,nppes:1720465784,same,same,same,DBA Dr. Bob Maley Family Dentistry 17 m away
+osm:node/8141725494,nppes:1053831941,same,same,same,same address; names match; one phone mistyped
+osm:node/8143276702,nppes:1043807571,different,different,different,Park Dental at Edinborough Way in Edina
+osm:node/8143276702,nppes:1689732133,different,different,different,Park Dental in Prior Lake
+osm:node/8143276702,nppes:1730247321,same,same,same,Park Dental on Edinbrook Pkwy 70 m away
+osm:node/8143276702,nppes:1801552138,different,different,different,different name 84 m away
+osm:node/8149821514,nppes:1508564030,same,same,same,same phone 85 m away; Dr. Luke
+osm:node/8165857405,nppes:1275150989,same,same,same,same phone 31 m away; names match
+osm:node/8643396152,nppes:1053127852,different,different,different,different name and street
+osm:node/8643396152,nppes:1063887719,different,different,different,different name and street
+osm:node/8643396152,nppes:1831963487,different,different,different,different name and street
+osm:node/8829958521,nppes:1033223581,same,same,same,same phone 27 m away; names match
+osm:node/8829958521,nppes:1992915649,different,different,different,different name and city
+osm:node/8902410044,nppes:1003174764,different,different,different,different name
+osm:node/8902410044,nppes:1396129433,different,different,different,different name
+osm:node/8902410044,nppes:1770190951,different,different,different,different name
+osm:node/8925060127,nppes:1417015009,different,different,different,Park Dental 141 m away; different name and phone
+osm:node/8963308986,nppes:1225150881,different,unsure,different,adjudicated: rule 1; full addresses on the same street 884 m apart are different sites; a shared phone never overrides rule 1
+osm:node/9018998040,nppes:1164165890,different,different,different,orthodontist at the same address; different phone
+osm:node/9018998040,nppes:1316913411,different,different,different,Metro Dentalcare at another site
+osm:node/9018998040,nppes:1497403810,different,different,different,Metro Dentalcare at another site
+osm:node/9018998040,nppes:1689324311,different,different,different,Metro Dentalcare at another site
+osm:node/9018998040,nppes:1881841021,different,different,different,Metro Dentalcare at another site
+osm:node/9018998040,nppes:1891443263,different,different,different,Metro Dentalcare at another site
+osm:node/9018998040,nppes:1942958301,same,same,same,same address and phone; Metro Dentalcare Shakopee
+osm:node/9236659368,nppes:1265586192,same,same,same,Osage Dental Associates 64 m away
+osm:node/9236659368,nppes:1336337526,different,different,different,oral surgeons at the same address; different phone
+osm:node/9291222004,nppes:1760503478,different,different,different,different name and address
+osm:node/937197698,nppes:1235297672,different,different,different,different name
+osm:node/937197698,nppes:1295859676,different,different,different,different name
+osm:node/9465385261,nppes:1245250596,different,different,different,different name and address
+osm:node/9465385261,nppes:1811392665,same,same,same,same address and suite; DBA Tamarack Hills
+osm:node/9579836292,nppes:1356967061,different,different,different,different name and street
+osm:node/9579836292,nppes:1801991146,different,different,different,different name and street
+osm:node/9579836297,nppes:1356967061,different,different,different,different name and street
+osm:node/9579836297,nppes:1801991146,different,different,different,different name and street
+osm:node/9579836298,nppes:1356967061,different,different,different,different name and street
+osm:node/9579836298,nppes:1801991146,different,different,different,different name and street
+osm:node/9604654646,nppes:1174797476,different,different,different,different name and address
+osm:node/9604654646,nppes:1356404883,different,different,different,different name and address
+osm:node/9604654646,nppes:1467515460,different,different,different,different name and address
+osm:node/9604654646,nppes:1649332842,different,different,different,same address; Posnick and Weber names differ; no phone link
+osm:node/9604654646,nppes:1821356502,different,different,different,different name and address
+osm:node/9604654646,nppes:1992820153,different,different,different,different name and address
+osm:node/9625347272,nppes:1215083183,different,different,different,different name and address
+osm:node/9625347272,nppes:1699816132,different,different,different,different name and address
+osm:node/9625347272,nppes:1811483795,different,different,different,different name and address
+osm:node/9671484192,nppes:1053405571,different,different,different,different name and street
+osm:node/9713220536,nppes:1275318628-pl1,unsure,different,unsure,adjudicated: rule 4; opaque entity name at the same address; phones differ and nothing else links or separates them
+osm:way/1000596278,nppes:1053405571,different,different,different,different name and street
+osm:way/100102554,nppes:1013153352,same,same,same,same address; Associated Dentists
+osm:way/100102554,nppes:1184770851,same,same,same,same address; Associated Dentists
+osm:way/1021270932,nppes:1437225554,different,different,different,Park Dental at the same address; different name
+osm:way/1021270932,nppes:1497879951,different,different,different,orthodontic group at another site
+osm:way/1021270932,nppes:1588788053,different,different,different,orthodontic group at another site
+osm:way/1021270932,nppes:1699267633,same,same,same,same address; DBA The Dental Specialists Orthodontics
+osm:way/1039199196,nppes:1679272488,different,different,different,different name and address
+osm:way/1039199196,nppes:1881754950,different,different,different,different name and address
+osm:way/1119682675,nppes:1124618962,different,different,different,different name
+osm:way/1119682675,nppes:1760013015,different,different,different,different name
+osm:way/1163631265,nppes:1023681152,different,different,different,different name
+osm:way/1163631265,nppes:1043365992,same,same,same,same address; Arnold Orthodontics
+osm:way/1163631265,nppes:1386489318,same,different,same,adjudicated: same address and phone as Arnold Orthodontics (row 569); old and new entity (2c)
+osm:way/1163631265,nppes:1578505152-pl2,different,different,different,different name in Hugo
+osm:way/1163631265,nppes:1578505152-pl4,different,different,different,different name in Hugo
+osm:way/1170470513,nppes:1689028037,different,different,different,different name and address
+osm:way/1170470513,nppes:1902920382,same,same,same,same address; names match
+osm:way/1202670640,nppes:1154972909,same,same,same,same address; DBA Ramsey Dental Center
+osm:way/1202670640,nppes:1225229503,same,same,same,same address; DBA Ramsey Dental Center
+osm:way/1220338509,nppes:1164474003,same,same,same,same address and phone; names match
+osm:way/1220338509,nppes:1619141942,different,different,different,different name and address
+osm:way/1220338509,nppes:1780902080,different,different,different,different name and address
+osm:way/1220408471,nppes:1306933577,same,same,same,same address and phone; practice renamed The Dental Suite
+osm:way/1223321522,nppes:1932274107,same,same,same,Sweendent 63 m away
+osm:way/1236974632,nppes:1619141942,same,same,same,same address and phone; names match
+osm:way/1257036315,nppes:1083011928,different,different,different,different name and address
+osm:way/1257036315,nppes:1427773225,same,same,same,same address; DBA Riverside Valley Dental Care
+osm:way/1257036315,nppes:1992915649,different,different,different,different name and city
+osm:way/126130354,nppes:1427875715,different,different,different,different name and address
+osm:way/126130354,nppes:1437496098,same,same,same,same address; MapleTree vs Maplewood Pediatric Dentistry
+osm:way/126155334,nppes:1003108895,unsure,same,different,adjudicated: rule 1; 6053 and 6101 are different street numbers and not a one-digit typo
+osm:way/1310687224,nppes:1255024295,same,same,same,Jordan Family Dental 102 m away
+osm:way/1310687224,nppes:1326650961,different,different,different,different name and city
+osm:way/1462838098,nppes:1043365208,different,different,different,different name 1.8 km away
+osm:way/1462838098,nppes:1184732620,unsure,same,unsure,adjudicated: rule 2c needs a shared phone to tie the partners' names to the practice name; OSM has none
+osm:way/1464496015,nppes:1003988122,different,different,different,different address 1 km away and different phone
+osm:way/1474171336,nppes:1114324951,same,same,same,same address and phone; Dental Associates of St. Paul
+osm:way/1474171336,nppes:1295858991,same,same,same,same address and phone; Dental Associates of St. Paul
+osm:way/1474171336,nppes:1619688751,same,same,same,same address and phone; Dental Associates of St. Paul
+osm:way/157489492,nppes:1073970273,different,different,different,different name number and phone
+osm:way/157489492,nppes:1417447210-pl1,different,different,different,different name and number
+osm:way/157489492,nppes:1689732133,different,different,different,Park Dental in Prior Lake
+osm:way/157489492,nppes:1841417003,different,different,different,different name in Chaska
+osm:way/157489499,nppes:1073970273,same,same,same,same address; names match; phones differ
+osm:way/157489499,nppes:1417447210-pl1,different,different,different,sleep clinic; different name
+osm:way/231160037,nppes:1861546111,same,same,same,same address and phone; names match
+osm:way/278916341,nppes:1568648871,different,different,different,different name and street number
+osm:way/308147815,nppes:1023681152,different,different,different,different name
+osm:way/308147815,nppes:1356586804,different,different,different,different name
+osm:way/339270935,nppes:1255098323,unsure,different,unsure,adjudicated: rule 4; a dentist's personal name vs a practice name at one address with no phone
+osm:way/350242398,nppes:1891749362,same,same,same,same address and phone; Northwood Dental
+osm:way/358201240,nppes:1235583832,different,different,different,different name and address
+osm:way/358201240,nppes:1255369278,same,same,same,same address; Cameo Dental
+osm:way/358201240,nppes:1316062557,different,different,different,different name and address
+osm:way/358201240,nppes:1811630551,different,different,different,different name and address
+osm:way/358201240,nppes:1851471460,different,different,different,different name and address
+osm:way/362842348,nppes:1609098458,same,same,same,same address and phone; names match
+osm:way/390529015,nppes:1689028037,same,same,same,same address and phone; names match
+osm:way/390529015,nppes:1902920382,different,different,different,different name and address
+osm:way/42789254,nppes:1073123030,different,different,different,different name
+osm:way/42789254,nppes:1225150881,different,different,different,different name
+osm:way/42789254,nppes:1275292641,different,different,different,different name
+osm:way/42789254,nppes:1326156910,same,same,same,Eckart Dental Center 74 m away
+osm:way/42789254,nppes:1356525331,same,same,same,Eckart Dental Center 74 m away
+osm:way/42789254,nppes:1619791019,different,different,different,different dentist at the same address; different phone
+osm:way/42789254,nppes:1972995587,same,same,same,Eckart Dental Center 74 m away
+osm:way/435068838,nppes:1043955412,same,same,same,same address; Creekside Dental
+osm:way/435068838,nppes:1366928426,different,different,different,different practice in another city
+osm:way/435068838,nppes:1770190951,different,different,different,different name and city
+osm:way/435068838,nppes:1831528447,same,same,same,same address; DBA Creekside Dental
+osm:way/448057160,nppes:1184899106,different,different,different,different name and street
+osm:way/448057160,nppes:1730248667,unsure,same,unsure,adjudicated: rule 2c needs a shared phone to tie a dentist's PA to the practice name; OSM has none
+osm:way/460383876,nppes:1477690279,same,same,same,same address; Brandsness named in OSM
+osm:way/460383876,nppes:1871242917,same,same,same,same address; Krumholz named in OSM
+osm:way/480968399,nppes:1689732133,different,different,different,Park Dental in Prior Lake
+osm:way/480968399,nppes:1760013015,different,different,different,co-located specialists; different name and phone
+osm:way/489112914,nppes:1689732133,different,different,different,Park Dental in Prior Lake
+osm:way/489112914,nppes:1710045117,same,same,same,same address; Park Dental
+osm:way/489112914,nppes:1841417003,different,different,different,different name in Chaska
+osm:way/489630183,nppes:1083880108,different,different,different,different name and number
+osm:way/489630183,nppes:1548487689,same,same,same,same address; names match
+osm:way/490000269,nppes:1902936461,same,same,same,same house number and phone; Spahl
+osm:way/490729787,nppes:1831665603,different,different,different,different name and city
+osm:way/505626264,nppes:1609990449,different,different,different,co-located orthodontist; different name and phone
+osm:way/505626264,nppes:1992868921,different,different,different,different name and address
+osm:way/506236046,nppes:1326650961,different,different,different,different name
+osm:way/506236046,nppes:1952582702,different,different,different,different name
+osm:way/507772602,nppes:1689732133,different,different,different,different name and city
+osm:way/507772602,nppes:1841417003,different,different,different,different name and city
+osm:way/510514973,nppes:1518054766,same,different,same,adjudicated: rule 2c; a dentists' professional association sharing Franco and Associates' address and phone
+osm:way/510514973,nppes:1649782756,same,same,same,same address and phone; names match
+osm:way/510514973,nppes:1952418311,different,different,different,different name and address
+osm:way/526980397,nppes:1629521893,same,same,same,same address and phone; Crestridge site
+osm:way/526980397,nppes:1710749296,same,same,same,same address and phone; Crestridge site
+osm:way/527080254,nppes:1952569220,different,different,different,different name and street
+osm:way/527997535,nppes:1437580818,same,same,same,same address; names match; geocode 319 m off
+osm:way/527997535,nppes:1588774152,same,same,same,same address; DBA Brite Smiles Dental Care
+osm:way/528003975,nppes:1063288017,same,same,same,same address; names match
+osm:way/528003975,nppes:1255442620,same,same,same,street number typo 16372 vs 16375; same name and phone
+osm:way/528466500,nppes:1053614867,same,same,same,same address; Lakeville Dental
+osm:way/528914212,nppes:1144353780,same,same,same,same address; names match
+osm:way/531848023,nppes:1316913411,different,different,different,Metro Dentalcare in Lakeville
+osm:way/531848023,nppes:1619625043,different,different,different,Metro Dentalcare Eagan 644 m away
+osm:way/531848023,nppes:1740438076,different,different,different,co-located specialists; different name
+osm:way/531848023,nppes:1770730954,same,same,same,same address; Metro Dentalcare
+osm:way/531848023,nppes:1881841021,different,different,different,Metro Dentalcare in Prior Lake
+osm:way/531848023,nppes:1932275971,different,different,different,Park Dental next door; different name
+osm:way/533507284,nppes:1255639696,same,same,same,same address; DBA Midwest Dental
+osm:way/533507284,nppes:1437369105,same,different,same,adjudicated: same suite and phone as Midwest Dental (row 665); old and new entity (2c)
+osm:way/533507284,nppes:1861718173,different,different,different,Midwest Dental at another site
+osm:way/547126362,nppes:1467509851,same,same,same,same address and phone; names match
+osm:way/601130228,nppes:1760693972,unsure,different,unsure,adjudicated: rule 4; OSM name Family Dentistry is generic; no phone to link
+osm:way/601130228,nppes:1831665603,different,different,different,different name and city
+osm:way/603434082,nppes:1255491866,different,different,different,different name
+osm:way/603434082,nppes:1447193297-pl1,different,different,different,different name
+osm:way/603434082,nppes:1578211991,different,different,different,Metro Dentalcare 155 m away; different name
+osm:way/603434082,nppes:1689732133,different,different,different,Park Dental in Prior Lake; OSM is in Cottage Grove
+osm:way/603434082,nppes:1801068358,different,different,different,different name
+osm:way/603434089,nppes:1003035064,same,same,same,DBA Orthodontics by Zirbel 41 m away
+osm:way/603434089,nppes:1023681152,different,different,different,different name
+osm:way/603434089,nppes:1023681152-pl1,different,different,different,different name
+osm:way/603434089,nppes:1255491866,different,different,different,different name
+osm:way/603434089,nppes:1447193297-pl1,different,different,different,different name
+osm:way/603434089,nppes:1497348239-pl1,different,different,different,different name
+osm:way/603434089,nppes:1801068358,different,different,different,different name
+osm:way/605053952,nppes:1114360492,same,same,same,same address and phone; DBA East Dental
+osm:way/605096310,nppes:1528129293,different,different,different,same address; Natural Dental vs Arcade Dental; no link
+osm:way/608991745,nppes:1689732133,different,different,different,Park Dental in Prior Lake
+osm:way/608991745,nppes:1710161500,same,same,same,same address; names match
+osm:way/636034786,nppes:1437704020,same,same,same,same address and phone; names match
+osm:way/697893580,nppes:1851466155,same,same,same,same address; Chalet Dental; phones differ
+osm:way/766562945,nppes:1437267598,same,same,same,same address; Larson Dental
+osm:way/766562945,nppes:1922726280,same,same,same,same address; Larson Dental
+osm:way/778595987,nppes:1376409276,different,different,different,different name 294 m away
+osm:way/778595987,nppes:1497936389,same,same,same,Chicago Lake Dental 33 m away
+osm:way/787322538,nppes:1477659050,same,same,same,Pierce 54 m away
+osm:way/796682451,nppes:1689732133,different,different,different,Park Dental in Prior Lake
+osm:way/796682451,nppes:1689842841,different,different,different,same house number; St Croix Valley Dental is not Park Dental
+osm:way/796682451,nppes:1740259464,different,different,different,same house number; St Croix Valley Dental is not Park Dental
+osm:way/796682451,nppes:1841417003,different,different,different,different name in Chaska
+osm:way/802023323,nppes:1295890895,same,same,same,same address and phone; Cherokee
+osm:way/914286353,nppes:1023681152,different,different,different,different name
+osm:way/914286353,nppes:1356967061,same,same,same,same address and phone as Family Orthodontics
+osm:way/914286353,nppes:1801991146,same,same,same,same address and phone; names match
+osm:way/918683583,nppes:1043715204,same,same,same,DBA Pilot Knob Dental Care 50 m away
+osm:way/918683583,nppes:1043715204-pl1,same,same,same,DBA Pilot Knob Dental Care 50 m away
+osm:way/918683583,nppes:1578505152-pl6,different,different,different,orthodontist; different name
+osm:way/92189751,nppes:1821493396,different,different,different,Fiant Dental at a street number 625 m away
+osm:way/93677602,nppes:1407973605,different,different,different,Children's Dental Services at another address 1.1 km away
+osm:way/93677602,nppes:1669842662-pl1,different,different,different,Children's Dental Services at another address 1.1 km away
+osm:way/93677602,nppes:1669842662-pl2,different,different,different,Children's Dental Services at another address 1.1 km away
+osm:way/958658188,nppes:1295859676,different,different,different,different name and city
+osm:way/958658188,nppes:1982311916,same,same,same,same address and phone; names match
+osm:way/974484284,nppes:1073789913,same,same,same,same address; Excel Dentistry
+osm:way/974484284,nppes:1235008343,different,different,different,different suite and name
+osm:way/974484284,nppes:1396914685,different,different,different,different suite and name
+osm:way/974484284,nppes:1497149496,different,different,different,different name and address
+osm:way/993142838,nppes:1073789913,different,different,different,different name and address
+osm:way/993142838,nppes:1235008343,different,different,different,different name and address
+osm:way/993142838,nppes:1346273059,same,same,same,same address; Rhode Island Dental
+osm:way/993142838,nppes:1396914685,different,different,different,different name and address

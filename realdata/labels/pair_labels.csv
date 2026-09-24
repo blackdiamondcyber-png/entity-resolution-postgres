@@ -1,0 +1,351 @@
+pair_key,pass1,pass2,label,reason
+nppes:1295907202|osm:node/13089392420,same,same,same,same address; Summit Dental and Summit Dental Care
+nppes:1578505152-pl5|nppes:1871155788,different,different,different,different suites names and phones in one building
+nppes:1225629017-pl1|nppes:1316538101-pl2,same,same,same,one HealthPartners suite and phone; two departments (2d)
+nppes:1164546040|nppes:1326044538,different,different,different,different suites names and phones in one building
+nppes:1578505152-pl3|nppes:1962645051,different,different,different,different sites 21 km apart; shared phone only
+nppes:1356854442-pl2|nppes:1518572916,different,different,different,chain sites 17 km apart; central phone
+nppes:1356404883|nppes:1992820153,different,different,different,general practice and orthodontist; different phones
+nppes:1538216411|nppes:1982767125,different,different,different,different suites names and phones in one building
+nppes:1619938057|nppes:1952028490,different,different,different,different suites names and phones in one building
+nppes:1164546040|nppes:1700589264,different,different,different,different suites names and phones in one building
+nppes:1073667051|nppes:1316538101-pl1,same,same,same,HealthPartners dental and pediatric dental at one address (2d)
+nppes:1003174764|nppes:1760802722,different,different,different,different sites 27 km apart; shared phone only
+nppes:1124411772|nppes:1710321930,same,same,same,same suite and phone; old and new legal entity
+nppes:1396483996|osm:node/7176583044,same,same,same,same address and suite; names match
+nppes:1356854442-pl4|nppes:1518572916,different,different,different,chain sites 9 km apart; central phone
+nppes:1659611333|nppes:1972748721,different,different,different,different suites names and phones in one building
+nppes:1649318619|osm:node/6734428577,same,same,same,same suite 150; pair 44 links Axel PC to Stone Creek Dental by phone
+nppes:1013153352|nppes:1699838011,different,different,different,different sites 8 km apart; shared phone only
+nppes:1720413263|nppes:1861507329,different,different,different,different suites names and phones in one building
+nppes:1356854442-pl1|nppes:1689842841,different,different,different,different sites 46 km apart; shared phone only
+nppes:1407325830-pl5|nppes:1760540165,different,different,different,different streets names and phones
+nppes:1740923309|osm:node/6391789948,same,same,same,same address and phone; DBA matches OSM name
+nppes:1922185016|nppes:1942214200,same,same,same,same suite and phone; old and new practice names
+nppes:1235311614|nppes:1356854442-pl10,different,different,different,different names and phones; one building
+nppes:1053791319|nppes:1184701898,different,different,different,same name and phone at two addresses 7 km apart (rule 3)
+nppes:1104569839|osm:node/6611097229,same,same,same,same suite and phone; brand differs; probable change of ownership
+nppes:1467870303|nppes:1679765929,same,same,same,street number typo 1485 vs 1495; same name and phone
+nppes:1356854442-pl10|nppes:1356854442-pl13,different,different,different,chain sites 12 km apart; central phone
+nppes:1043265481|nppes:1891079851,same,same,same,same suite and phone; DBA matches name
+nppes:1467515460|nppes:1992820153,different,different,different,different names and phones; one building
+nppes:1356854442-pl2|nppes:1831509827,different,different,different,different suites names and phones in one building
+nppes:1689732133|nppes:1881841021,same,same,same,same address and phone; Park Dental vs Metro Dentalcare; probable change of ownership
+nppes:1740340561|nppes:1982767125,different,different,different,different suites names and phones in one building
+nppes:1174045975|nppes:1619041969,different,different,different,different suites names and phones in one building
+nppes:1083676944|nppes:1861138133,different,different,different,different suites names and phones in one building
+nppes:1710108022|nppes:1770702714,different,different,different,different suites names and phones in one building
+nppes:1134547730|nppes:1700589264,different,different,different,different suites names and phones in one building
+nppes:1073327995|nppes:1861463465,same,same,same,same suite and phone; DBA matches name
+nppes:1275704520|nppes:1710358379,different,different,different,different brands and phones at one address
+nppes:1942018825|osm:node/6829122522,same,same,same,same address and phone; names match
+nppes:1033223581|osm:node/8829958521,same,same,same,same phone 27 m apart; names match
+nppes:1013517093|nppes:1104193762,different,different,different,orthodontist and endodontist; different phones
+nppes:1073862819|nppes:1639214547,different,different,different,different suites names and phones in one building
+nppes:1508080532|nppes:1649318619,same,same,same,same suite and phone; dentist PC and practice name
+nppes:1477170108-pl1|nppes:1477170108-pl4,different,different,different,chain sites 18 km apart; central phone
+nppes:1356854442-pl1|nppes:1356854442-pl9,different,different,different,chain sites 15 km apart; central phone
+nppes:1356854442|nppes:1689842841,different,different,different,different sites 38 km apart; shared phone only
+nppes:1477170108-pl1|nppes:1881783405,different,different,different,orthodontist and endodontist; different suites and phones
+nppes:1104977222|osm:node/3215276672,same,same,same,same address; DBA Jakubas Dental matches
+nppes:1285691220|nppes:1801982111,different,different,different,different suites names and phones in one building
+nppes:1477690279|osm:way/460383876,same,same,same,same address; Brandsness practice name contains the dentist
+nppes:1245722297|nppes:1508932344,same,same,same,one brand The Dental Specialists at one address (2d)
+nppes:1780790881|nppes:1952468654,different,different,different,different suites names and phones in one building
+nppes:1104272939|nppes:1649867334,different,different,different,different suites names and phones in one building
+nppes:1063768687|nppes:1245973817,same,same,same,same suite and phone; shared DBA Pro Dental
+nppes:1356854442-pl9|nppes:1457064800,different,different,different,chain sites 38 km apart; central phone
+nppes:1073862819|nppes:1265589642,different,different,different,different suites names and phones in one building
+nppes:1033307046|nppes:1619089737,different,different,different,different addresses 1.1 km apart; shared phone only
+nppes:1194997783|nppes:1447860523,same,same,same,same address and phone; dentist PC and Midwest Dental
+nppes:1134446370|nppes:1255249470,unsure,unsure,unsure,second name is junk text; different phones; cannot tell
+nppes:1699267633|osm:way/1021270932,same,same,same,same address; DBA matches OSM name; geocode 283 m off
+nppes:1073063103|nppes:1649867334,different,different,different,different suites names and phones in one building
+nppes:1225285208|nppes:1790014777,same,same,same,same address and phone; Olson PC and Olson Dental
+nppes:1093842841|nppes:1659543320,same,same,same,same name suite and phone
+nppes:1477170108|nppes:1710086459,different,different,different,different suites names and phones in one building
+nppes:1124192208|nppes:1134507718,same,same,same,same address and phone; opaque holding name
+nppes:1760837041|osm:node/12272163248,same,same,same,same address; Gentle Dentistry name matches
+nppes:1669199741|nppes:1861138133,different,different,different,different suites names and phones in one building
+nppes:1437580818|osm:way/527997535,same,same,same,same address; names match; geocode 319 m off
+nppes:1265589642|nppes:1740455773,different,different,different,different suites names and phones in one building
+nppes:1467640029|nppes:1619089737,different,different,different,different addresses 1.1 km apart; shared phone only
+nppes:1700975216|nppes:1992915649,same,same,same,one Three Rivers clinic system at one address (2d)
+nppes:1891443263|osm:node/11988962361,same,same,same,same address and suite; DBA matches OSM name
+nppes:1447961750|nppes:1699601310,different,different,different,different names and phones at one address
+nppes:1023681152-pl1|nppes:1114333986,different,different,different,different suites names and phones in one building
+nppes:1073063103|nppes:1982775235,different,different,different,different suites names and phones in one building
+nppes:1407309784|nppes:1790922854,different,different,different,different suites names and phones in one building
+nppes:1447350509|nppes:1861140501,different,different,different,orthodontist and endodontic center; different brands suites and phones
+nppes:1134862865|nppes:1669817557,same,same,same,same address and phone; old and new orthodontic entity
+nppes:1326044538|nppes:1407008477,same,same,same,same address and phone; periodontic practice and its PLLC
+nppes:1003245333|nppes:1659670362,different,different,different,general specialists and orthodontist; different phones
+nppes:1043715204|nppes:1043715204-pl1,same,same,same,same NPI name and address; second phone line
+nppes:1477170108-pl3|nppes:1477170108-pl4,different,different,different,chain sites 27 km apart; central phone
+nppes:1700940343|nppes:1841323110,different,different,different,different names and phones at one address
+nppes:1356854442|nppes:1821690496,different,different,different,chain sites; central phone
+nppes:1356854442-pl10|nppes:1356854442-pl5,different,different,different,chain sites 34 km apart; central phone
+nppes:1649424904|nppes:1962645051,different,different,different,different sites 38 km apart; shared phone only
+nppes:1013933381-pl1|nppes:1013933381-pl3,different,different,different,same clinic name at two addresses; central phone
+nppes:1326284597|nppes:1720415896,same,same,same,same address and phone; Mahtomedi dental names
+nppes:1447416607|nppes:1942018825,same,same,same,same address and phone; names match
+nppes:1861546111|osm:way/231160037,same,same,same,same address and phone; names match
+nppes:1578505152-pl2|nppes:1578505152-pl6,different,different,different,chain sites; central phone
+nppes:1376716043|nppes:1700058690,same,same,same,same suite and phone; DBA matches name
+nppes:1578505152-pl2|nppes:1578505152-pl5,different,different,different,chain sites; central phone
+nppes:1407325830-pl2|nppes:1407325830-pl7,different,different,different,different sites 15 km apart; shared phone only
+nppes:1629521893|osm:way/526980397,same,same,same,same address and phone; practice name differs; probable change of ownership
+nppes:1720415896|nppes:1841462652,same,same,same,same address and phone; Mahtomedi dental names
+nppes:1225178361|nppes:1780902080,same,same,same,same suite and phone; shared DBA
+nppes:1578505152-pl1|nppes:1578505152-pl7,different,different,different,chain sites 36 km apart; central phone
+nppes:1093442048|nppes:1891295861,same,same,same,same address and phone; DBA matches name
+nppes:1073970273|osm:way/157489499,same,same,same,same address; names match; phones differ
+nppes:1356854442-pl1|nppes:1356854442-pl13,different,different,different,chain sites 34 km apart; central phone
+nppes:1063288017|nppes:1255442620,same,same,same,street number typo 16372 vs 16375; same suite name and phone
+nppes:1689842841|nppes:1740259464,same,same,same,same legal name at one address; two DBAs
+osm:node/14204036046|osm:way/697893580,same,same,same,same address phone and name; duplicate OSM features
+nppes:1750436333|nppes:1952042053,different,different,different,two HealthPartners clinics 5.6 km apart; central phone
+nppes:1295858991|nppes:1619688751,same,same,same,same address and phone; same entity name
+nppes:1194693259|nppes:1417825563,same,same,same,same legal name; adjacent suites in one building
+nppes:1356854442|nppes:1356854442-pl13,different,different,different,chain sites 29 km apart; central phone
+nppes:1356854442-pl1|nppes:1356854442-pl10,different,different,different,chain sites 34 km apart; central phone
+nppes:1053685586|nppes:1689722639,same,same,same,same suite and phone; Dental Specialists family
+nppes:1356854442-pl2|nppes:1356854442-pl5,different,different,different,chain sites 34 km apart; central phone
+nppes:1407325830|nppes:1407325830-pl3,different,different,different,different sites 16 km apart; shared phone only
+nppes:1710161500|osm:way/608991745,same,same,same,same address; names match
+nppes:1336492834|nppes:1447659495,same,same,same,same address and phone; Minnetonka dental names
+nppes:1356854442-pl2|nppes:1356854442-pl7,different,different,different,chain sites 30 km apart; central phone
+nppes:1073787669|nppes:1831857788,same,same,same,same address and phone; names match
+nppes:1356854442-pl10|nppes:1518572916,different,different,different,chain sites 17 km apart; central phone
+nppes:1679944698|osm:node/4869073856,different,different,different,same name and phone at addresses 3.4 km apart (rule 3)
+nppes:1093445082|osm:node/7202107156,same,same,same,same address and phone; names match
+nppes:1407325830-pl5|nppes:1407325830-pl6,different,different,different,different sites; shared phone only
+nppes:1114324951|osm:way/1474171336,same,same,same,same address and phone; names match; OSM ZIP wrong
+nppes:1396089298|osm:node/12335479796,same,same,same,same phone 49 m apart; names match
+nppes:1285350736|nppes:1285350736-pl1,different,different,different,same practice name at two sites 24 km apart
+nppes:1528423274|nppes:1801585922,same,same,same,same address and phone; DBA matches name
+nppes:1578505152-pl4|nppes:1578505152-pl5,different,different,different,chain sites; central phone
+nppes:1013517093|nppes:1295227247,different,different,different,two sites 1.9 km apart; shared phone only
+nppes:1447416607|osm:node/6829122522,same,same,same,same address and phone; names match
+nppes:1356854442|nppes:1457064800,different,different,different,chain sites 28 km apart; central phone
+nppes:1578505152-pl3|nppes:1578505152-pl7,different,different,different,chain sites 36 km apart; central phone
+nppes:1417447210|nppes:1417447210-pl1,different,different,different,two addresses 821 m apart; shared phone only
+nppes:1255136560|nppes:1346353968,same,same,same,same suite and phone; dentist PC and practice
+nppes:1215590575|nppes:1922185016,same,same,same,same suite and phone; Lake Minnetonka Dental names
+nppes:1578505152-pl2|nppes:1578505152-pl3,different,different,different,chain sites; central phone
+nppes:1154971380|nppes:1821145723,same,same,same,same suite and phone; old and new practice names
+nppes:1649424904|nppes:1699918789,different,different,different,different sites 23 km apart; shared phone only
+nppes:1457410482|nppes:1578254710,same,same,same,same suite and phone; DBA matches name
+nppes:1669199741|nppes:1982775235,same,same,same,same suite and phone; names match
+nppes:1134547730|nppes:1326044538,same,same,same,same suite and phone; names match
+nppes:1356854442-pl4|nppes:1356854442-pl5,different,different,different,chain sites 29 km apart; central phone
+nppes:1821145723|nppes:1942668702,same,same,same,same suite and phone; names match
+nppes:1477170108|nppes:1477170108-pl4,different,different,different,chain sites 28 km apart; central phone
+nppes:1154568293|nppes:1811058746,same,same,same,same suite and phone; Dulac practice and dentist
+nppes:1073862637|nppes:1366681082,same,same,same,same address and phone; DBA matches name
+nppes:1356854442-pl5|nppes:1356854442-pl7,different,different,different,chain sites 3.6 km apart; central phone
+nppes:1407325830|nppes:1407325830-pl4,different,different,different,different sites 21 km apart; shared phone only
+nppes:1144353780|osm:way/528914212,same,same,same,same address; names match
+nppes:1073789913|osm:way/974484284,same,same,same,same address; names match
+nppes:1356854442-pl9|nppes:1518572916,different,different,different,chain sites 20 km apart; central phone
+nppes:1356854442-pl10|nppes:1821690496,different,different,different,chain sites; central phone
+nppes:1013199561|nppes:1477112456,different,different,different,same practice name at two sites 35 km apart
+nppes:1356854442-pl13|nppes:1356854442-pl2,different,different,different,chain sites 12 km apart; central phone
+nppes:1114207362|osm:node/11852879266,same,same,same,same address and suite; names match
+nppes:1477170108|nppes:1477170108-pl1,different,different,different,chain sites 10 km apart; central phone
+nppes:1356854442-pl10|nppes:1356854442-pl7,different,different,different,chain sites 30 km apart; central phone
+nppes:1780764993|osm:node/12099767280,same,same,same,same address and phone; Bomstad in both names
+nppes:1073668877|nppes:1316538101-pl3,different,different,different,two HealthPartners sites 3.6 km apart; central phone
+nppes:1487303889|nppes:1497404818,same,same,same,one Metro Dentalcare specialty center; same address and phone (2d)
+nppes:1477170108|nppes:1477170108-pl2,different,different,different,chain sites; central phone
+nppes:1477170108-pl1|nppes:1477170108-pl3,different,different,different,chain sites 13 km apart; central phone
+nppes:1063512234|nppes:1598865651,same,same,same,one Metro Dentalcare specialty center; same phone (2d)
+nppes:1356854442-pl9|nppes:1821690496,different,different,different,chain sites; central phone
+nppes:1356854442|nppes:1356854442-pl2,different,different,different,chain sites 22 km apart; central phone
+nppes:1245416403|osm:node/1411811129,same,same,same,same phone 34 m apart; names match
+nppes:1902920382|osm:way/1170470513,same,same,same,same address; names match
+nppes:1356854442|nppes:1356854442-pl5,different,different,different,chain sites 28 km apart; central phone
+nppes:1356854442|nppes:1356854442-pl1,different,different,different,chain sites 21 km apart; central phone
+nppes:1760802722|nppes:1871837708,different,different,different,two sites 16 km apart; shared phone only
+nppes:1689028037|osm:way/390529015,same,same,same,same address and phone; names match
+nppes:1447350509|nppes:1598865651,different,same,different,adjudicated: rule 2c needs neither name to identify a different business; Woodlake Orthodontics and a Metro Dentalcare oral surgery center are two brands in two suites
+nppes:1770540502|nppes:1861914061,same,same,same,same suite and phone; DBA matches name
+nppes:1659611333|nppes:1952028490,same,same,same,same suite and phone; names match
+nppes:1457064800|nppes:1821690496,different,different,different,chain sites; central phone
+nppes:1407701253|nppes:1417825563,same,same,same,same suite and phone; Montgomery entities
+nppes:1558010967|nppes:1669817557,different,same,different,adjudicated: rule 2c; oral surgery and orthodontics under two brands; a shared group line does not make them one practice
+nppes:1356854442-pl7|nppes:1457064800,different,different,different,chain sites 3.6 km apart; central phone
+nppes:1548487689|osm:way/489630183,same,same,same,same address; names match
+nppes:1225629017-pl3|nppes:1922153881,same,same,same,HealthPartners specialty and general dental at one address (2d)
+nppes:1316062557|nppes:1811630551,same,same,same,same address and phone; old and new orthodontic entity
+nppes:1447422175|nppes:1598449688,same,same,same,same unit and phone; old and new entity
+nppes:1356854442-pl4|nppes:1356854442-pl9,different,different,different,chain sites 15 km apart; central phone
+nppes:1407973605|nppes:1669842662-pl2,same,same,same,same address and phone; names match
+nppes:1356854442-pl2|nppes:1457064800,different,different,different,chain sites 34 km apart; central phone
+nppes:1134547730|nppes:1407008477,same,same,same,same address and phone; periodontic practice and its PLLC
+nppes:1043642135|osm:node/7147762889,same,same,same,same address and phone; names match
+nppes:1467509851|osm:way/547126362,same,same,same,same address and phone; names match
+nppes:1891749362|osm:way/350242398,same,same,same,same address and phone; DBA Northwood Dental matches
+nppes:1578505152-pl2|nppes:1578505152-pl7,different,different,different,chain sites; central phone
+nppes:1932361474|nppes:1932361474-pl1,different,different,different,same name at two addresses; shared phone only
+nppes:1174600621|nppes:1437847654,same,same,same,same suite and phone; names match
+nppes:1982311916|osm:way/958658188,same,same,same,same address and phone; names match
+nppes:1013933381-pl1|nppes:1013933381-pl2,different,different,different,same clinic name at two addresses; central phone
+nppes:1003654104|nppes:1528805553,same,same,same,same suite name and phone; two NPIs
+nppes:1407945199|nppes:1477634343,different,different,different,same practice name at two sites 21 km apart
+nppes:1356854442-pl1|nppes:1518572916,different,different,different,chain sites 17 km apart; central phone
+nppes:1679673867|nppes:1861140501,same,same,same,same legal name in one building; two Metro Dentalcare DBAs
+nppes:1275707580|nppes:1881060069,same,same,same,same address and phone; old and new entity
+nppes:1356854442-pl1|nppes:1356854442-pl2,different,different,different,chain sites 34 km apart; central phone
+nppes:1477170108-pl1|nppes:1477170108-pl2,different,different,different,chain sites; central phone
+nppes:1417340563|nppes:1790435428,same,same,same,same address and phone; 36th Street Dental now Metro Dentalcare
+nppes:1336430149|nppes:1720479462,same,same,same,same legal name and suite; two phone lines
+nppes:1578505152-pl3|nppes:1578505152-pl4,different,different,different,chain sites; central phone
+nppes:1407325830-pl2|nppes:1407325830-pl6,different,different,different,different sites 11 km apart; shared phone only
+nppes:1356854442-pl5|nppes:1356854442-pl9,different,different,different,chain sites 38 km apart; central phone
+nppes:1114324951|nppes:1619688751,same,same,same,same address and phone; sister entities of Dental Associates
+nppes:1083789929|osm:node/12139088878,same,same,same,same suite and phone; practice renamed Halsa Edina Dental
+nppes:1164474003|osm:way/1220338509,same,same,same,same address and phone; names match
+nppes:1356854442-pl1|nppes:1356854442-pl4,different,different,different,chain sites 19 km apart; central phone
+nppes:1356854442-pl10|nppes:1356854442-pl4,different,different,different,chain sites 22 km apart; central phone
+nppes:1255870531|osm:node/12020737355,same,same,same,same address and suite; names match
+nppes:1376409276|nppes:1992822290,different,different,different,two community clinics 2.6 km apart; central phone
+nppes:1356854442-pl2|nppes:1356854442-pl4,different,different,different,chain sites 22 km apart; central phone
+nppes:1457064800|nppes:1518572916,different,different,different,chain sites 35 km apart; central phone
+nppes:1356854442|nppes:1356854442-pl10,different,different,different,chain sites 22 km apart; central phone
+nppes:1407325830-pl1|nppes:1407325830-pl6,different,different,different,different sites 20 km apart; shared phone only
+nppes:1053685586|nppes:1851772362,same,same,same,same suite and phone; Dental Specialists family
+nppes:1134862865|nppes:1558010967,different,same,different,adjudicated: rule 2c; orthodontics and oral surgery under two brands; a shared group line does not make them one practice
+nppes:1356854442-pl4|nppes:1457064800,different,different,different,chain sites 29 km apart; central phone
+nppes:1407325830-pl1|nppes:1407325830-pl5,different,different,different,different sites; shared phone only
+nppes:1366810061|nppes:1417191602,same,same,same,same legal name in one building; two suites
+nppes:1689722639|nppes:1851772362,same,same,same,same name suite and phone; two NPIs
+nppes:1659554517|osm:node/6236126673,same,same,same,same address suite and phone; names match
+nppes:1164959938|nppes:1225629017-pl2,same,same,same,same address and phone; HealthPartners entities
+nppes:1174600621|osm:node/12335504029,same,same,same,same phone 65 m apart; names match
+nppes:1407325830-pl3|nppes:1407325830-pl4,different,different,different,different sites 30 km apart; shared phone only
+nppes:1356854442-pl13|nppes:1457064800,different,different,different,chain sites 46 km apart; central phone
+nppes:1306933577|osm:way/1220408471,same,same,same,same address and phone; practice renamed The Dental Suite
+nppes:1356854442-pl1|nppes:1821690496,different,different,different,chain sites; central phone
+nppes:1669842662-pl1|nppes:1669842662-pl2,same,same,same,same NPI name and address; two location entries
+nppes:1356854442|nppes:1356854442-pl7,different,different,different,chain sites 26 km apart; central phone
+nppes:1093261190|nppes:1316538101-pl2,same,same,same,same address and phone; HealthPartners entities
+nppes:1447961750|nppes:1548282585,same,same,same,same address and phone; ADT is Apple Tree Dental
+nppes:1063512234|nppes:1447350509,different,same,different,adjudicated: rule 2c; periodontics center and orthodontist under two brands in two suites; shared group line only
+nppes:1225629017|nppes:1780739417,same,same,same,HealthPartners specialty and general dental at one address (2d)
+nppes:1699918789|nppes:1962645051,different,different,different,different sites 16 km apart; shared phone only
+nppes:1356854442-pl13|nppes:1518572916,different,different,different,chain sites 21 km apart; central phone
+nppes:1629521893|nppes:1710749296,same,same,same,same address and phone; old and new practice names
+nppes:1356854442|nppes:1356854442-pl4,different,different,different,chain sites 1.4 km apart; central phone
+nppes:1275150989|osm:node/8165857405,same,same,same,same phone 31 m apart; names match
+nppes:1699267633|nppes:1861088197,different,different,different,two sites 14 km apart; shared phone only
+nppes:1437847654|osm:node/12335504029,same,same,same,same phone 65 m apart; names match
+nppes:1356854442-pl1|nppes:1457064800,different,different,different,chain sites 48 km apart; central phone
+nppes:1457448615|nppes:1952712366,same,same,same,same address and name; two University NPIs
+nppes:1386189801|nppes:1528558244,same,same,same,same suite name and phone; one ZIP mistyped
+nppes:1356854442-pl2|nppes:1821690496,different,different,different,chain sites; central phone
+nppes:1639398886|nppes:1962460881,same,same,same,same name address and phone; two NPIs
+nppes:1326797713|nppes:1871241505,same,same,same,one Metro Dentalcare specialty center; same address and phone (2d)
+nppes:1356854442-pl5|nppes:1518572916,different,different,different,chain sites 35 km apart; central phone
+nppes:1295890895|osm:way/802023323,same,same,same,same address and phone; Cherokee names match
+nppes:1487302113|nppes:1598413239,same,same,same,same legal name address and phone; two NPIs
+nppes:1972748721|osm:node/12704116116,different,different,different,same name and phone at addresses 2 km apart; probable move (rule 3)
+nppes:1356854442-pl5|nppes:1821690496,different,different,different,chain sites; central phone
+nppes:1003174764|nppes:1871837708,different,different,different,two sites 22 km apart; shared phone only
+nppes:1407325830-pl5|nppes:1407325830-pl7,different,different,different,different sites; shared phone only
+nppes:1093261190|nppes:1225629017-pl1,same,same,same,same address and phone; HealthPartners entities
+nppes:1194887521|nppes:1508300252,same,same,same,same suite and phone; DBA matches name
+nppes:1033307046|nppes:1467640029,same,same,same,same address and phone; Doorstep names
+nppes:1437267598|nppes:1922726280,same,same,same,same address and phone; DBA Larson Dental matches
+nppes:1104249259|nppes:1376687103,same,same,same,same suite and phone; shared DBA Arden Dental Associates
+nppes:1578505152-pl6|nppes:1578505152-pl7,different,different,different,chain sites 37 km apart; central phone
+nppes:1609098458|osm:way/362842348,same,same,same,same address and phone; names match; OSM street misspelled
+nppes:1215590575|nppes:1942214200,same,same,same,same suite and phone; old and new practice names
+nppes:1316538101|nppes:1801941943,same,same,same,HealthPartners pediatric and general dental at one address (2d)
+nppes:1356854442-pl13|nppes:1356854442-pl4,different,different,different,chain sites 29 km apart; central phone
+nppes:1790389005-pl1|nppes:1952709420,same,same,same,same suite name and phone
+nppes:1578505152-pl3|nppes:1578505152-pl5,different,different,different,chain sites 9 km apart; central phone
+nppes:1033840160|nppes:1235322504,same,same,same,same suite and phone; old and new practice names
+nppes:1356854442-pl7|nppes:1821690496,different,different,different,chain sites; central phone
+nppes:1578505152-pl3|nppes:1578505152-pl6,different,different,different,chain sites 10 km apart; central phone
+nppes:1578505152-pl4|nppes:1578505152-pl7,different,different,different,chain sites; central phone
+nppes:1518572916|nppes:1821690496,different,different,different,chain sites; central phone
+nppes:1619141942|osm:way/1236974632,same,same,same,same address and phone; names match
+nppes:1356854442-pl4|nppes:1356854442-pl7,different,different,different,chain sites 27 km apart; central phone
+nppes:1578505152-pl4|nppes:1578505152-pl6,different,different,different,chain sites; central phone
+nppes:1356854442-pl10|nppes:1356854442-pl2,same,same,same,same NPI name and building; adjacent suites
+nppes:1649782756|osm:way/510514973,same,same,same,same address and phone; names match
+nppes:1801941943|nppes:1952042053,same,same,same,HealthPartners general and residency dental at one address (2d)
+nppes:1093997546|osm:node/1719957678,same,same,same,same address and phone; Gentle Dentistry matches
+nppes:1578505152-pl1|nppes:1578505152-pl4,different,different,different,chain sites; central phone
+nppes:1356854442-pl2|nppes:1356854442-pl9,different,different,different,chain sites 37 km apart; central phone
+nppes:1114324951|nppes:1295858991,same,same,same,same address and phone; DBA matches name
+nppes:1154971380-pl1|nppes:1235429267,same,same,same,same address and phone; Gentle Dentistry entities
+nppes:1578505152-pl5|nppes:1578505152-pl6,different,different,different,chain sites 19 km apart; central phone
+nppes:1356854442-pl13|nppes:1356854442-pl9,different,different,different,chain sites 41 km apart; central phone
+nppes:1801991146|osm:way/914286353,same,same,same,same address and phone; names match
+nppes:1407325830-pl2|nppes:1407325830-pl5,different,different,different,different sites; shared phone only
+nppes:1437704020|osm:way/636034786,same,same,same,same address and phone; names match
+nppes:1760837041|nppes:1952399685,different,different,different,two street addresses 222 m apart; same name and phone (rule 1)
+nppes:1619277043|nppes:1689847519,same,same,same,same address and phone; DBA matches name
+nppes:1902978893|osm:node/12569712465,same,same,same,same address suite and phone; names match
+nppes:1154971380|nppes:1942668702,same,same,same,same suite and phone; old and new practice names
+nppes:1477170108-pl2|nppes:1477170108-pl4,different,different,different,chain sites; central phone
+nppes:1437580818|nppes:1588774152,same,same,same,same address and phone; DBA matches name
+nppes:1629199617|nppes:1790389005,different,different,different,two street addresses 232 m apart; same name and phone (rule 1)
+nppes:1356854442-pl7|nppes:1356854442-pl9,different,different,different,chain sites 37 km apart; central phone
+nppes:1013216811|nppes:1659670362,different,same,different,adjudicated: rule 2c; periodontics and orthodontics under two brands; the shared line is the group's central number
+nppes:1386189272|nppes:1508926841,different,different,different,two addresses 1.7 km apart; same name and phone
+nppes:1477170108|nppes:1477170108-pl3,different,different,different,chain sites 13 km apart; central phone
+nppes:1407325830-pl6|nppes:1407325830-pl7,different,different,different,different sites 8 km apart; shared phone only
+nppes:1023127388|nppes:1821079583,same,same,same,same address name and phone; ZIP differs on one
+nppes:1356854442-pl10|nppes:1356854442-pl9,different,different,different,chain sites 37 km apart; central phone
+nppes:1851466155|osm:way/697893580,same,same,same,same address; Chalet Dental names match; phones differ
+nppes:1356854442|nppes:1518572916,different,different,different,chain sites 10 km apart; central phone
+nppes:1164758199|osm:node/12124640947,same,same,same,same address suite and phone; DBA Boger Dental matches
+nppes:1386035590|nppes:1386516433,same,same,same,same suite and phone; old and new practice names
+nppes:1073953832|nppes:1154926939,same,same,same,same address and phone; old and new practice names
+nppes:1144978560|nppes:1285774398,same,same,same,same suite and phone; Metro Dentalcare and Assure Dental; probable change of ownership
+nppes:1174045975|nppes:1225095052,same,same,same,same suite and phone; DBA matches name
+nppes:1043435951|nppes:1295238178,same,same,same,same address and phone; old and new practice names
+nppes:1356854442-pl13|nppes:1356854442-pl7,different,different,different,chain sites 42 km apart; central phone
+nppes:1356525331|nppes:1972995587,same,same,same,same address name and phone
+nppes:1326156910|nppes:1356525331,same,same,same,same address name and phone
+nppes:1578505152-pl5|nppes:1578505152-pl7,different,different,different,chain sites 37 km apart; central phone
+nppes:1447860523|osm:node/5361754637,same,same,same,same address and phone; Midwest Dental matches
+nppes:1356854442-pl10|nppes:1457064800,different,different,different,chain sites 34 km apart; central phone
+nppes:1316538101|nppes:1952042053,same,same,same,HealthPartners pediatric and residency dental at one address (2d)
+nppes:1356854442-pl5|nppes:1457064800,same,same,same,same legal name in one building; two suites
+nppes:1578505152-pl2|nppes:1578505152-pl4,same,same,same,same NPI name and address; two location entries
+nppes:1053831941|osm:node/8141725494,same,same,same,same address; names match; one phone mistyped
+nppes:1356854442-pl7|nppes:1518572916,different,different,different,chain sites 32 km apart; central phone
+nppes:1578505152-pl1|nppes:1578505152-pl2,different,different,different,chain sites; central phone
+nppes:1619781770|osm:node/1696599650,same,same,same,same phone 27 m apart; OSM name misspelled
+nppes:1013933381-pl2|nppes:1013933381-pl3,different,different,different,same clinic name at two addresses; central phone
+nppes:1669894887|osm:node/6611097224,different,different,different,chain central phone; OSM point 7.5 km from this site (rule 3)
+nppes:1326284597|nppes:1841462652,same,same,same,same address and phone; names match
+nppes:1356854442|nppes:1356854442-pl9,different,different,different,chain sites 16 km apart; central phone
+nppes:1194453951|osm:node/7147743967,same,same,same,same address; names match; phones differ
+nppes:1477677946|nppes:1932842663,same,same,same,same address and phone; old and new orthodontic entity
+nppes:1356854442-pl13|nppes:1356854442-pl5,different,different,different,chain sites 46 km apart; central phone
+nppes:1124192208|nppes:1720772791,same,same,same,same address and phone; DBA text names City of Lakes Dental
+nppes:1114522992|nppes:1902146335,same,same,same,same address and phone; old and new practice names
+nppes:1477170108-pl2|nppes:1477170108-pl3,different,different,different,chain sites; central phone
+nppes:1043265481|nppes:1821498858,same,same,same,same suite and phone; DBA matches name
+nppes:1407325830-pl1|nppes:1407325830-pl2,different,different,different,different sites 21 km apart; shared phone only
+nppes:1578505152-pl1|nppes:1578505152-pl6,different,different,different,chain sites 10 km apart; central phone
+nppes:1407325830-pl1|nppes:1407325830-pl7,different,different,different,different sites 27 km apart; shared phone only
+nppes:1578505152-pl1|nppes:1578505152-pl5,different,different,different,chain sites 9 km apart; central phone
+nppes:1356854442-pl1|nppes:1356854442-pl7,different,different,different,chain sites 46 km apart; central phone
+nppes:1053481010|nppes:1992083125,same,same,same,same address and phone; old and new practice names
+nppes:1326156910|nppes:1972995587,same,same,same,same address name and phone
+nppes:1407973605|nppes:1669842662-pl1,same,same,same,same address and phone; names match
+nppes:1780866962|nppes:1942352216,same,same,same,same address and phone; Metro Dentalcare and Assure Dental; probable change of ownership
+nppes:1578505152-pl1|nppes:1578505152-pl3,same,same,same,same NPI name and address; two location entries
+nppes:1356854442-pl13|nppes:1821690496,different,different,different,chain sites; central phone
+nppes:1437754215|nppes:1518407014,same,same,same,same address and phone; old and new practice names
+nppes:1356854442-pl4|nppes:1821690496,different,different,different,chain sites; central phone
+nppes:1356854442-pl1|nppes:1356854442-pl5,different,different,different,chain sites 48 km apart; central phone
+nppes:1023681152|nppes:1023681152-pl1,different,different,different,two sites in different cities; central phone
+nppes:1548282585|osm:node/3201016445,same,same,same,same address and phone; names match
+nppes:1336560275|nppes:1942357397,different,different,different,same name and phone at addresses 2 km apart (rule 3)

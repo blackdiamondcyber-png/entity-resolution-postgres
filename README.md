@@ -63,7 +63,7 @@ From the CI run of `bench/synthetic.sql` on `postgres:16`:
 | Sent to the review queue                      | 800                                                                                               |
 | Left distinct                                 | 104                                                                                               |
 
-What that does and does not show. The 800 in review are exactly the one in five planted duplicates whose phone number was dropped. Without a phone match, name, street number and coordinates can score at most 0.70, below the 0.85 auto-merge line, so a duplicate with no phone always goes to a human. That is the threshold doing what it was set to do, not a recall figure for real data. The 104 pairs left distinct are different businesses sharing a street number and ZIP, and none of them merged. Synthetic rows prove the blocking reduction and the speed. `bench/perturbed.sql`, below, shows how synthetic misspellings, abbreviations and mistyped street numbers move through the same pipeline, but a generated typo is not a real one, so neither file can tell you how often an actual spelling difference fools the scorer, which is what the review queue is for.
+What that does and does not show. The 800 in review are exactly the one in five planted duplicates whose phone number was dropped. Without a phone match, name, street number and coordinates can score at most 0.70, below the 0.85 auto-merge line, so a duplicate with no phone always goes to a human. That is the threshold doing what it was set to do, not a recall figure for real data. The 104 pairs left distinct are different businesses sharing a street number and ZIP, and none of them merged. Synthetic rows prove the blocking reduction and the speed. `bench/perturbed.sql`, below, shows how synthetic misspellings, abbreviations and mistyped street numbers move through the same pipeline, but a generated typo is not a real one, so neither file can tell you how often an actual spelling difference fools the scorer. The real-data run below measures that.
 
 ### With misspellings
 
@@ -83,6 +83,31 @@ From the CI run of `bench/perturbed.sql` on `postgres:16`:
 Overall: 3,000 planted, 1,046 auto-merged, 0 of those auto-merges wrong (precision 1.0000).
 
 How to read it. With a kept phone (+0.30), a matching street number and postal code (+0.15) and coordinates within 50 m (+0.10), a pair starts at 0.55, so the name needs a trigram similarity of only 0.667 to reach the 0.85 auto-merge line. A one-letter typo stays well above that (median 0.829), and all 500 merge. Abbreviations pull the median down to 0.487, so 454 of 500 go to review instead. Without the phone a pair starts at 0.25, and reaching even the 0.60 review floor takes a similarity of 0.778: 443 of 500 typos still make it, but only 55 of 500 abbreviations do, and the rest are left as separate businesses with nobody looking at them. A mistyped street number with no phone is never compared at all. Blocking only pairs records that share a phone, or a street number and postal code, and this kind breaks both, so all 500 are missed before scoring runs. Blocking on name trigrams within a postal code would reach them; it is not in this pipeline.
+
+## On real data
+
+`realdata/` runs the same pipeline, unchanged, on two public sources for the
+Twin Cities metro: 1,150 dental practice locations from the federal NPI
+registry and 269 OpenStreetMap dentists. It scores the output against 1,068
+labelled pairs. The method, the labelling and the limits are in
+[realdata/README.md](realdata/README.md), and CI fails if any of these figures
+change.
+
+| Measure                                                     | Result                                              |
+| ----------------------------------------------------------- | --------------------------------------------------- |
+| Auto-merges that are the same practice                      | 43 of 44                                            |
+| Review pairs that are real duplicates                       | 108 of 246                                          |
+| Sampled distinct pairs that are real duplicates             | 17 of 59                                            |
+| OSM dentists with a registry match that were auto-merged    | 12 of 156                                           |
+| OSM dentists with a registry match that were never compared | 51 of 156, 47 of them with neither blocking key     |
+
+The auto-merge line holds on real data and recall does not. The scorer reads
+legal names and ignores the trading names the registry keeps beside them, a
+chain's central phone number fills the review queue with its own sites, and a
+third of the OpenStreetMap records carry neither a phone nor a street number
+to block on. The labels come from two independent model passes (Cohen's kappa
+0.97 on the pairs, 0.91 on the recall set), not from a person, and every label
+and reason is in the repo.
 
 ## Why blocking on street number works
 
@@ -138,6 +163,7 @@ does not.
 | `bench/synthetic.sql`        | Synthetic benchmark measuring blocking and scoring at size                                    |
 | `bench/perturbed.sql`        | Benchmark measuring the same pipeline against misspelled, abbreviated and mistyped duplicates |
 | `tests/resolution-tests.sql` | Assertions, including the cases that used to break                                            |
+| `realdata/`                  | Real-data run: fetch scripts, the data snapshot, labels, and the figures CI checks             |
 
 ## Running it
 
@@ -151,8 +177,9 @@ psql "$DATABASE_URL" -f sql/04-merge.sql
 psql "$DATABASE_URL" -f tests/resolution-tests.sql
 ```
 
-The test file raises on the first failed assertion. CI runs exactly this
-sequence against `postgres:16` on every push.
+The test file raises on the first failed assertion. CI runs this sequence,
+then both benchmarks and the real-data check in `realdata/`, against
+`postgres:16` on every push.
 
 ## What I would do differently
 
