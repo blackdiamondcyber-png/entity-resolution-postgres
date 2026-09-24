@@ -32,15 +32,19 @@ survives "St" vs "Street" and "Ste 200" vs "Suite 200". Phones reduce to ten
 digits with the country code stripped.
 
 **Block** generates candidate pairs cheaply. Two records only get compared if
-they share a blocking key: same phone, or same street number in the same postal
-code. This turns 242 million comparisons into a few hundred thousand. Blocking
-is where the performance lives, and picking the wrong key is how you either miss
-matches or fail to reduce the search space at all.
+they share a blocking key: same phone, same street number in the same postal
+code, or within 150 m of each other with loosely similar names. This turns 259
+million comparisons into a few hundred thousand. Blocking is where the
+performance lives, and picking the wrong key is how you either miss matches or
+fail to reduce the search space at all.
 
-**Score** compares candidates on several fields and sums weighted similarity.
-Trigram similarity on names, exact match on normalized phone, distance between
-coordinates. A pair above the auto-merge threshold merges. A pair in the middle
-band goes to a review queue. Below, it stays separate.
+**Score** compares candidates on several fields and sums weighted similarity:
+trigram similarity on the best pair of names (legal and trading), exact match on
+normalized phone when the two records are within a kilometre, and distance
+between coordinates. A pair above the auto-merge threshold merges. A pair in the
+middle band goes to a review queue, and so does a lower-scoring pair whose
+phone, street number and ZIP all agree, or whose names are similar within
+150 m. Everything else stays separate.
 
 ## Measured at size
 
@@ -86,28 +90,31 @@ How to read it. With a kept phone (+0.30), a matching street number and postal c
 
 ## On real data
 
-`realdata/` runs the same pipeline, unchanged, on two public sources for the
-Twin Cities metro: 1,150 dental practice locations from the federal NPI
-registry and 269 OpenStreetMap dentists. It scores the output against 1,068
-labelled pairs. The method, the labelling and the limits are in
-[realdata/README.md](realdata/README.md), and CI fails if any of these figures
-change.
+`realdata/` runs the pipeline on two public sources for the Twin Cities metro:
+1,150 dental practice locations from the federal NPI registry and 269
+OpenStreetMap dentists, scored against 1,135 labelled pairs. The method, the
+labelling and the limits are in [realdata/README.md](realdata/README.md), and
+CI fails if any of these figures change.
 
-| Measure                                                     | Result                                              |
-| ----------------------------------------------------------- | --------------------------------------------------- |
-| Auto-merges that are the same practice                      | 43 of 44                                            |
-| Review pairs that are real duplicates                       | 108 of 246                                          |
-| Sampled distinct pairs that are real duplicates             | 17 of 59                                            |
-| OSM dentists with a registry match that were auto-merged    | 12 of 156                                           |
-| OSM dentists with a registry match that were never compared | 51 of 156, 47 of them with neither blocking key     |
+| Measure                                                         | First run  | Now        |
+| --------------------------------------------------------------- | ---------- | ---------- |
+| Auto-merges that are the same practice                          | 43 of 44   | 78 of 79   |
+| Review pairs that are the same practice                         | 108 of 246 | 277 of 354 |
+| Sampled distinct pairs that are the same practice               | 17 of 59   | 5 of 59    |
+| OSM dentists with a registry match that were auto-merged        | 12 of 156  | 19 of 156  |
+| OSM dentists with a registry match that reached merge or review | 44 of 156  | 133 of 156 |
+| OSM dentists with a registry match that were never compared     | 51 of 156  | 3 of 156   |
 
-The auto-merge line holds on real data and recall does not. The scorer reads
-legal names and ignores the trading names the registry keeps beside them, a
-chain's central phone number fills the review queue with its own sites, and a
-third of the OpenStreetMap records carry neither a phone nor a street number
-to block on. The labels come from two independent model passes (Cohen's kappa
-0.97 on the pairs, 0.91 on the recall set), not from a person, and every label
-and reason is in the repo.
+The first run showed the auto-merge line holding and recall failing. The
+scorer ignored the trading names the registry keeps beside legal names, a
+chain's central phone number filled the review queue with its own sites, and a
+third of the OpenStreetMap records had nothing to block on. The pipeline now
+scores every name, counts a phone only within a kilometre, blocks on
+proximity, and sends pairs whose keys agree to review. I tuned those fixes on
+these labels, so the second column is in-sample, and a second metro is the
+real test. The labels come from two independent model passes (Cohen's kappa
+0.97 and 0.83 on the two rounds of pairs, 0.91 on the recall set), not from a
+person, and every label and reason is in the repo.
 
 ## Why blocking on street number works
 
@@ -143,6 +150,7 @@ per-record:
 | Field       | Rule                                                                   |
 | ----------- | ---------------------------------------------------------------------- |
 | Name        | Longer of the two                                                      |
+| Other names | Union of both records' other names, plus the name that lost            |
 | Address     | Longer of the two                                                      |
 | Phone       | First valid number, kept record first, falling back to whatever exists |
 | Coordinates | Kept record's, filled from the merged record when missing              |
@@ -163,7 +171,7 @@ does not.
 | `bench/synthetic.sql`        | Synthetic benchmark measuring blocking and scoring at size                                    |
 | `bench/perturbed.sql`        | Benchmark measuring the same pipeline against misspelled, abbreviated and mistyped duplicates |
 | `tests/resolution-tests.sql` | Assertions, including the cases that used to break                                            |
-| `realdata/`                  | Real-data run: fetch scripts, the data snapshot, labels, and the figures CI checks             |
+| `realdata/`                  | Real-data run: fetch scripts, the data snapshot, labels, and the figures CI checks            |
 
 ## Running it
 

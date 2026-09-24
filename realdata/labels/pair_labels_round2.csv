@@ -1,0 +1,125 @@
+pair_key,pass1,pass2,label,reason
+nppes:1003245333|nppes:1306338553,same,same,same,one brand The Dental Specialists (2d)
+nppes:1013153352|nppes:1184770851,same,same,same,Associated Dentists plus a place qualifier at one address (2a)
+nppes:1013933381|nppes:1013933381-pl2,different,different,different,street numbers 2330 vs 2360 and phones differ; not a typo under rule 1
+nppes:1023664935-pl1|nppes:1255974325-pl8,same,same,same,same suite and phone; old and new orthodontic entity (2c)
+nppes:1023664935-pl1|nppes:1760583231,same,same,same,same suite and phone; old and new orthodontic entity (2c)
+nppes:1023664935|nppes:1245393230,same,same,same,Lakes Orthodontics and Lakes Orthodontic Associates; same address and phone (2a)
+nppes:1023664935|nppes:1255974325-pl4,same,same,same,same address and phone; old and new orthodontic entity (2c)
+nppes:1033392014|nppes:1083331771,same,same,same,same suite and phone (2c)
+nppes:1043300262|nppes:1982961942,same,same,same,name matches DBA (2b)
+nppes:1043355225|nppes:1720413263,same,same,same,same suite and phone; East Wayzata Blvd is Wayzata Blvd (2c)
+nppes:1043365992|nppes:1386489318,same,same,same,same address and phone; old and new orthodontic entity (2c)
+nppes:1043429970|nppes:1073063103,different,different,different,same building; different suites names and phones
+nppes:1043807571|nppes:1679794176,same,same,same,same suite and phone; Park Dental and Stone and Johnson; probable change of ownership (2c)
+nppes:1043955412|nppes:1831528447,same,same,same,DBA matches name (2b)
+nppes:1053602888|nppes:1174294995,same,same,same,DBA matches name (2b)
+nppes:1053685586|nppes:1932256344,different,same,different,adjudicated: rule 2c; Park Dental and Orthodontic Specialists are two brands; a shared group line does not make them one practice
+nppes:1063512234|nppes:1639815434,different,different,different,6601 vs 6602 Lyndale; different brands and phones
+nppes:1063512234|nppes:1679673867,same,same,same,one Metro Dentalcare Richfield in one building (2d)
+nppes:1063512234|nppes:1720188998,same,same,same,same suite and phone; Metro Dentalcare (2d)
+nppes:1063512234|nppes:1861140501,same,same,same,one Metro Dentalcare Specialty Center Richfield (2d)
+nppes:1073063103|nppes:1659039444,different,different,different,same building; different suites names and phones
+nppes:1073461810|nppes:1376222547,same,same,same,same address; names match apart from General (2a)
+nppes:1073862819|nppes:1548430101,same,unsure,same,adjudicated: rule 1 puts two suites in one building at one site; rule 2c holds because two dentist corporations share one phone
+nppes:1083357727|nppes:1518081082,same,same,same,same address and phone; old and new orthodontic entity (2c)
+nppes:1093468852|nppes:1194949511,same,same,same,same suite and phone (2c)
+nppes:1104249259|nppes:1538220207,different,different,different,11806 vs 11800 Aberdeen St; names and phones differ
+nppes:1104249259|nppes:1952997421,different,different,different,different street numbers 11806 vs 11800; names and phones differ
+nppes:1104569839|nppes:1801043096,different,same,different,adjudicated: rule 2c; Woodlake Orthodontics and Metro Dentalcare are two brands; a shared line does not make them one practice
+nppes:1124207899|nppes:1194053173,same,same,same,same address and phone (2c)
+nppes:1124262514|nppes:1356977136,same,same,same,DBA matches name (2b)
+nppes:1134507718|nppes:1720772791,same,same,same,same address and phone (2c)
+nppes:1134862865|nppes:1194474593,different,different,different,Woodlake Orthodontics and Metro Dentalcare periodontics; two brands and phones
+nppes:1144696063|nppes:1760667091,same,same,same,DBA matches name (2b)
+nppes:1144717299|nppes:1619781770,same,same,same,DBA matches name (2b)
+nppes:1154763688|nppes:1831665603,same,same,same,same address and phone; old and new practice names (2c)
+nppes:1154971380|nppes:1710344494,different,different,different,different street numbers 10611 vs 10700 France Ave
+nppes:1154972909|nppes:1225229503,same,same,same,same address and phone; both DBA Ramsey Dental Center
+nppes:1164040457|nppes:1508476482,different,different,different,Colby Orthodontics and Sensational Smiles/MUVE Orthodontics; different names and phones
+nppes:1164040457|nppes:1649867334,same,same,same,no street number on A; 93 m apart; same suite 531 and phone (1; 2c)
+nppes:1174797476|nppes:1821356502,same,same,same,same address and phone (2c)
+nppes:1174872949|nppes:1285350736-pl1,same,same,same,same suite; Shamblott Family Dentistry and Shamblott Family Dental Center name one practice (2a)
+nppes:1184046385|nppes:1275707580,same,same,same,DBA matches name (2b)
+nppes:1184046385|nppes:1881060069,same,same,same,same address and phone; old and new entity (2c)
+nppes:1184169153|nppes:1871750026,same,same,same,same address and phone; owner corporation and practice name (2c)
+nppes:1194328914|nppes:1457411753,same,same,same,same suite and phone (2c)
+nppes:1194474593|nppes:1558010967,same,same,same,one Metro Dentalcare St. Paul Midway (2d)
+nppes:1194474593|nppes:1730837105,same,same,same,same address and phone; Metro Dentalcare St. Paul Midway (2a)
+nppes:1194667436|nppes:1568189520,same,same,same,same address and phone (2c)
+nppes:1194693259|nppes:1407701253,same,same,same,same building; both Marc Montgomery practices (2d)
+nppes:1194939041|nppes:1538225677,same,same,same,same suite and phone (2c)
+nppes:1215673454|nppes:1720647589,same,same,same,same suite and phone; sleep entity run from the dental office (2c)
+nppes:1225107998|nppes:1467112037,same,same,same,same address and phone; both DBA Filson Gentle Dentistry
+nppes:1225788953|nppes:1316913411,same,same,same,same address and phone; Cedarview Dental Care and Metro Dentalcare (2c)
+nppes:1235008343|nppes:1396914685,same,same,same,same suite and phone; MN-7 is Highway 7 (2c)
+nppes:1235366808|nppes:1649329384,same,same,same,same address; DBA Hilltop Dental matches name (2b)
+nppes:1235564725|nppes:1619959426,same,same,same,same suite and phone (2c)
+nppes:1235583832|nppes:1851471460,same,same,same,DBA matches name (2b)
+nppes:1245393230|nppes:1255974325-pl4,same,same,same,same address and phone; old and new orthodontic entity (2c)
+nppes:1255044723|nppes:1336683036,same,same,same,DBA matches name (2b)
+nppes:1255639696|nppes:1437369105,same,same,same,same suite and phone; old and new entity (2c)
+nppes:1255974325-pl8|nppes:1760583231,same,same,same,same suite and phone; old and new orthodontic entity (2c)
+nppes:1265606248|nppes:1740402932,same,same,same,same address and phone (2c)
+nppes:1275628331|nppes:1720918840,same,same,same,same address and phone; sleep entity run from the dental office (2c)
+nppes:1295227247|nppes:1477677946,different,different,different,different street numbers 8650 vs 8980 Hudson Blvd
+nppes:1316035595|nppes:1336430149,same,same,same,same suite and phone; dentist PA and Three Rivers Orthodontics (2c)
+nppes:1326797713|nppes:1780327411,different,different,different,Metro Dentalcare periodontics and Woodlake Orthodontics; two brands and phones
+nppes:1336575539|nppes:1730734708,same,same,same,same suite and phone (2c)
+nppes:1356586804|nppes:1396089298,same,same,same,same suite and phone; old and new orthodontic entity (2c)
+nppes:1356967061|nppes:1801991146,same,same,same,same address and phone; dentist PA and practice name (2c)
+nppes:1366928426|nppes:1619938057,same,same,same,DBA matches name (2b)
+nppes:1376619114|nppes:1821362302,same,same,same,one brand The Dental Specialists in one building (2d)
+nppes:1376687103|nppes:1538220207,different,different,different,11806 vs 11800 Aberdeen St; names and phones differ
+nppes:1376687103|nppes:1952997421,different,different,different,11806 vs 11800 Aberdeen St; names and phones differ
+nppes:1396340642|nppes:1891079851,different,different,different,different street numbers 625 vs 675 E Nicollet Blvd
+nppes:1396690863|nppes:1629150008,same,same,same,same suite and phone (2c)
+nppes:1447193297-pl1|nppes:1801068358,same,same,same,same building and phone; dentist PLLC and practice name (2c)
+nppes:1447350509|nppes:1639815434,different,different,different,street numbers 6601 vs 6602 and phones differ; not a typo under rule 1
+nppes:1447350509|nppes:1679673867,different,different,different,Woodlake Orthodontics and Metro Dentalcare; two brands and phones
+nppes:1447350509|nppes:1720188998,different,same,different,adjudicated: rule 2c; Woodlake Orthodontics and Metro Dentalcare are two brands in two suites; shared group line only
+nppes:1467877001|nppes:1588730394,same,same,same,same address and phone (2c)
+nppes:1487302113|nppes:1487303889,same,same,same,one Metro Dentalcare Specialty Center Maple Grove (2d)
+nppes:1487302113|nppes:1497404818,same,same,same,one Metro Dentalcare Specialty Center Maple Grove at one address (2d)
+nppes:1487303889|nppes:1598413239,same,same,same,one Metro Dentalcare Specialty Center Maple Grove (2d)
+nppes:1497404818|nppes:1598413239,same,same,same,one Metro Dentalcare Specialty Center Maple Grove (2d)
+nppes:1508926841|nppes:1902812126,different,different,different,endodontist and orthodontist; different suites and phones
+nppes:1518054766|nppes:1649782756,same,same,same,same address and phone (2c)
+nppes:1518616614|nppes:1679673867,same,same,same,same building and phone; MN Dentalcare and Metro Dentalcare Richfield (2c)
+nppes:1518616614|nppes:1720188998,same,different,different,adjudicated: no rule 2 link; MN Dentalcare and Metro Dentalcare differ; no shared phone; 2d needs evidence of one organisation that the fields do not give
+nppes:1528997830|nppes:1639398886,same,same,same,same address and phone (2c)
+nppes:1528997830|nppes:1962460881,same,same,same,same address and phone (2c)
+nppes:1538220207|nppes:1932200037,different,different,different,same building; general dentist and endodontist in different suites with different phones
+nppes:1538220207|nppes:1952997421,same,same,same,DBA matches name; same suite (2b)
+nppes:1558010967|nppes:1730837105,same,same,same,one Metro Dentalcare St. Paul Midway at one address (2a)
+nppes:1558218537|nppes:1770205064,same,same,same,same suite and phone; practice and dentist PLLC (2c)
+nppes:1578505152-pl2|nppes:1619496700,different,different,different,different addresses; shared phone is a chain line (3)
+nppes:1578505152-pl4|nppes:1619496700,different,different,different,different addresses; shared phone is a chain line (3)
+nppes:1588094171|nppes:1891442174-pl1,same,same,same,same suite and phone; Ross orthodontics and Ross sleep medicine (2d)
+nppes:1598413916|nppes:1710344494,different,different,different,different street numbers 10611 vs 10700 France Ave
+nppes:1598865651|nppes:1639815434,different,different,different,6601 vs 6602 Lyndale; different brands and phones
+nppes:1598865651|nppes:1679673867,same,same,same,one Metro Dentalcare brand in one building (2d)
+nppes:1598865651|nppes:1720188998,same,same,same,same building and phone; Metro Dentalcare (2d)
+nppes:1598865651|nppes:1861140501,same,same,same,one Metro Dentalcare Specialty Center Richfield in one building (2d)
+nppes:1609095140|nppes:1679765929,same,same,same,same suite and phone (2c)
+nppes:1619064243|nppes:1821451774,same,same,same,same building and phone; dentist PA and practice name (2c)
+nppes:1619259181|nppes:1851459887,same,same,same,DBA matches name (2b)
+nppes:1629560677|nppes:1912143843,same,same,same,one brand The Dental Specialists in one suite (2d)
+nppes:1639214547|nppes:1679705404,same,same,same,same suite and phone; two dentist names (2c)
+nppes:1639334428|nppes:1972699908,same,same,same,same address and phone; both DBA Bass Lake Dental Group
+nppes:1639815434|nppes:1679673867,different,different,different,6602 vs 6601 Lyndale; different brands and phones
+nppes:1639815434|nppes:1861140501,different,different,different,6602 vs 6601 Lyndale; different brands and phones
+nppes:1659528891|nppes:1841366093,same,same,same,same address and phone; Metro Dentalcare and Park Dental; probable change of ownership (2c)
+nppes:1679142673|nppes:1740215656,same,same,same,DBA matches name (2b)
+nppes:1679673867|nppes:1720188998,same,same,same,Metro Dentalcare Richfield is Metro Dentalcare plus a place (2a)
+nppes:1689722639|nppes:1932256344,different,same,different,adjudicated: rule 2c; Park Dental and The Dental Specialists are two brands; a shared group line does not make them one practice
+nppes:1700302742|nppes:1871632331,same,same,same,same suite and phone (2c)
+nppes:1710052691|nppes:1932399557,same,same,same,same address and phone (2c)
+nppes:1720697808|nppes:1952287146,same,same,same,DBA Bluejay Family Dentistry matches Blue Jay Family Dentistry (2b)
+nppes:1760686984|nppes:1861714792,same,same,same,same suite and phone; old and new entity (2c)
+nppes:1780327411|nppes:1871241505,different,different,different,Woodlake Orthodontics and a Metro Dentalcare endodontics center; two brands and phones (2c)
+nppes:1821498858|nppes:1891079851,same,same,same,same suite and phone; both DBA Northstar Dental Clinic
+nppes:1851772362|nppes:1932256344,different,same,different,adjudicated: rule 2c; Park Dental and The Dental Specialists are two brands; a shared group line does not make them one practice
+nppes:1902398944|nppes:1922308113,same,same,same,one brand The Dental Specialists at one address (2d)
+osm:node/12138867396|osm:node/12139088880,different,different,different,36 m apart; Anderson Dentalcare and Edina Dental Care name different businesses; no phone
+osm:node/12139088878|osm:node/12139088880,different,unsure,different,adjudicated: rule 2; two business names with no phone or other name linking them; sharing the words Edina Dental is not a match under 2a

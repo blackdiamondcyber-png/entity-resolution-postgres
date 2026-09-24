@@ -18,6 +18,16 @@ begin
 
   update locations set
     name    = case when length(coalesce(d.name,''))    > length(coalesce(k.name,''))    then d.name    else k.name    end,
+    -- Every name either record carried, including the one that lost, so a
+    -- later record written the losing way still matches.
+    other_names = array(
+      select distinct n
+        from unnest(k.other_names || d.other_names || array[k.name, d.name]) n
+       where n is not null
+         and n is distinct from (case when length(coalesce(d.name,'')) > length(coalesce(k.name,''))
+                                      then d.name else k.name end)
+       order by n
+    ),
     address = case when length(coalesce(d.address,'')) > length(coalesce(k.address,'')) then d.address else k.address end,
     phone   = coalesce(
                 case when is_valid_nanp(k.phone) then k.phone end,

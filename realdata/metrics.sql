@@ -7,54 +7,91 @@
 
 -- A pair is keyed by its two records as "source:record_id", sorted bytewise
 -- (collate "C", the same order the label files were written in), because the
--- uuids behind scored_pairs change on every load.
+-- uuids behind scored_pairs change on every load. Every auto_merge and review
+-- pair is in the labelled sample; of the distinct pairs, the 60 with the
+-- lowest md5(pair_key) are, which is a fixed draw that needs no random seed.
 create or replace view rd_pairs as
-select least(k.ka, k.kb) || '|' || greatest(k.ka, k.kb) as pair_key,
-       sp.verdict, sp.score, sp.block
-  from scored_pairs sp
-  join locations a on a.id = sp.a_id
-  join locations b on b.id = sp.b_id
-  cross join lateral (
-    select (a.source || ':' || (a.external_ids->>'record_id')) collate "C" as ka,
-           (b.source || ':' || (b.external_ids->>'record_id')) collate "C" as kb
-  ) k;
+with k as (
+  select least(k.ka, k.kb) || '|' || greatest(k.ka, k.kb) as pair_key,
+         sp.verdict, sp.routed_by, sp.score, sp.block
+    from scored_pairs sp
+    join locations a on a.id = sp.a_id
+    join locations b on b.id = sp.b_id
+    cross join lateral (
+      select (a.source || ':' || (a.external_ids->>'record_id')) collate "C" as ka,
+             (b.source || ':' || (b.external_ids->>'record_id')) collate "C" as kb
+    ) k
+), ranked as (
+  select k.*,
+         row_number() over (partition by k.verdict = 'distinct'
+                            order by md5(k.pair_key) collate "C") as draw
+    from k
+)
+select pair_key, verdict, routed_by, score, block,
+       verdict <> 'distinct' or draw <= 60 as sampled
+  from ranked;
 
--- 1. The labels must cover every auto_merge and review pair, and every label
---    must still point at a scored pair. Anything else means the data or the
---    pipeline changed under the labels.
+-- One label per pair. pair_labels holds both labelling rounds; an OSM and
+-- registry pair that neither round labelled takes its label from
+-- neighbour_labels, which asks the same question under the same rules. Where
+-- both files label a pair, the two agree (57 pairs, 0 conflicts).
+create or replace view rd_labels as
+select pair_key, label, 'round ' || round as source
+  from pair_labels
+union all
+select n.pair_key, n.label, 'neighbours'
+  from (select least(osm_key collate "C", nppes_key collate "C") || '|'
+               || greatest(osm_key collate "C", nppes_key collate "C") as pair_key,
+               label
+          from neighbour_labels) n
+ where not exists (select 1 from pair_labels p where p.pair_key = n.pair_key);
+
+-- 1. The labels must cover every sampled pair, every pair label must still
+--    point at a scored pair, and a pair labelled in both files must carry one
+--    label. Anything else means the data or the pipeline changed under them.
 do $$
 declare
   unlabelled int;
   orphaned   int;
+  conflicts  int;
 begin
   select count(*) into unlabelled
-    from rd_pairs p left join pair_labels l using (pair_key)
-   where p.verdict <> 'distinct' and l.pair_key is null;
+    from rd_pairs p left join rd_labels l using (pair_key)
+   where p.sampled and l.pair_key is null;
   select count(*) into orphaned
     from pair_labels l left join rd_pairs p using (pair_key)
    where p.pair_key is null;
-  if unlabelled > 0 or orphaned > 0 then
-    raise exception 'labels out of step with scored_pairs: % unlabelled, % orphaned',
-      unlabelled, orphaned;
+  select count(*) into conflicts
+    from pair_labels p
+    join neighbour_labels n
+      on p.pair_key = least(n.osm_key collate "C", n.nppes_key collate "C") || '|'
+                      || greatest(n.osm_key collate "C", n.nppes_key collate "C")
+   where p.label <> n.label;
+  if unlabelled > 0 or orphaned > 0 or conflicts > 0 then
+    raise exception 'labels out of step with scored_pairs: % unlabelled, % orphaned, % conflicting',
+      unlabelled, orphaned, conflicts;
   end if;
 end $$;
 
--- 2. What each band holds.
+-- 2. What each band holds, with review split by the rule that sent a pair
+--    there: a score of 0.60 or more, phone, street and ZIP all agreeing at one
+--    point, or a similar name within 150 m. Label counts are over the sample.
 select p.verdict,
-       count(*)                                      as pairs,
-       count(l.pair_key)                             as labelled,
-       count(*) filter (where l.label = 'same')      as same,
-       count(*) filter (where l.label = 'different') as different,
-       count(*) filter (where l.label = 'unsure')    as unsure
+       coalesce(p.routed_by, '')                                   as routed_by,
+       count(*)                                                    as pairs,
+       count(*) filter (where p.sampled)                           as sampled,
+       count(*) filter (where p.sampled and l.label = 'same')      as same,
+       count(*) filter (where p.sampled and l.label = 'different') as different,
+       count(*) filter (where p.sampled and l.label = 'unsure')    as unsure
   from rd_pairs p
-  left join pair_labels l using (pair_key)
- group by p.verdict
+  left join rd_labels l using (pair_key)
+ group by p.verdict, p.routed_by
  order by min(p.score) desc;
 
 -- 3. Every auto-merge the labels disagree with.
-select round(p.score, 3) as score, p.block, l.label, l.pair_key, l.reason
+select round(p.score, 3) as score, p.block, l.label, l.pair_key, l.source
   from rd_pairs p
-  join pair_labels l using (pair_key)
+  join rd_labels l using (pair_key)
  where p.verdict = 'auto_merge' and l.label <> 'same'
  order by p.score desc;
 
@@ -105,9 +142,10 @@ select o.best,
  order by min(case o.best when 'auto_merge' then 1 when 'review' then 2
                           when 'distinct' then 3 else 4 end);
 
--- 5. How often the two labelling passes agreed, with Cohen's kappa.
+-- 5. How often the two labelling passes agreed, with Cohen's kappa, for each
+--    round of pair labels and for the neighbour file.
 with passes as (
-  select 'pairs' as file, pass1, pass2 from pair_labels
+  select 'pairs round ' || round as file, pass1, pass2 from pair_labels
   union all
   select 'neighbours', pass1, pass2 from neighbour_labels
 ), n as (
@@ -133,6 +171,7 @@ select n.file, n.n::int as rows, n.agree::int as agreed,
 
 -- 6. The figures realdata/README.md publishes. If the data, the labels or the
 --    pipeline change, this fails and the README has to be updated with them.
+--    A band reads pairs/sampled/same/different/unsure.
 do $$
 declare
   got text;
@@ -141,13 +180,14 @@ begin
     select 'rows' as k, count(*)::text as v from locations
     union all select 'pairs', count(*)::text from rd_pairs
     union all
-    select 'band_' || p.verdict,
-           format('%s/%s/%s/%s/%s', count(*), count(l.pair_key),
-                  count(*) filter (where l.label = 'same'),
-                  count(*) filter (where l.label = 'different'),
-                  count(*) filter (where l.label = 'unsure'))
-      from rd_pairs p left join pair_labels l using (pair_key)
-     group by p.verdict
+    select 'band_' || p.verdict || coalesce('_' || replace(p.routed_by, ' ', '_'), ''),
+           format('%s/%s/%s/%s/%s', count(*),
+                  count(*) filter (where p.sampled),
+                  count(*) filter (where p.sampled and l.label = 'same'),
+                  count(*) filter (where p.sampled and l.label = 'different'),
+                  count(*) filter (where p.sampled and l.label = 'unsure'))
+      from rd_pairs p left join rd_labels l using (pair_key)
+     group by p.verdict, p.routed_by
     union all
     select 'osm_outcome_' || replace(o.best, ' ', '_'),
            format('%s/%s', count(*),
@@ -157,16 +197,19 @@ begin
       join locations l on (l.source || ':' || (l.external_ids->>'record_id')) = o.osm_key
      group by o.best
     union all
-    select 'agree_pairs', count(*) filter (where pass1 = pass2)::text from pair_labels
+    select 'agree_pairs_round' || round, count(*) filter (where pass1 = pass2)::text
+      from pair_labels group by round
     union all
     select 'agree_neighbours', count(*) filter (where pass1 = pass2)::text from neighbour_labels
   ) f;
 
   if got is distinct from
-     'agree_neighbours=691 agree_pairs=345 band_auto_merge=44/44/43/1/0 '
-     'band_distinct=770/60/17/42/1 band_review=246/246/108/138/0 '
-     'osm_outcome_auto_merge=12/0 osm_outcome_distinct=61/0 '
-     'osm_outcome_not_paired=51/47 osm_outcome_review=32/0 pairs=1060 rows=1419'
+     'agree_neighbours=691 agree_pairs_round1=345 agree_pairs_round2=116 '
+     'band_auto_merge_score=79/79/78/1/0 band_distinct=748/60/5/54/1 '
+     'band_review_keys_agree=49/49/47/2/0 band_review_same_place=115/115/86/29/0 '
+     'band_review_score=190/190/144/46/0 osm_outcome_auto_merge=19/0 '
+     'osm_outcome_distinct=20/4 osm_outcome_not_paired=3/3 osm_outcome_review=114/40 '
+     'pairs=1181 rows=1419'
   then
     raise exception 'real-data figures changed: %', got;
   end if;

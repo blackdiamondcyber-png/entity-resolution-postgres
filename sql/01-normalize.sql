@@ -49,6 +49,7 @@ create table if not exists locations (
   id            uuid primary key default gen_random_uuid(),
   source        text not null,
   name          text,
+  other_names   text[] not null default '{}',
   address       text,
   postal_code   text,
   phone         text,
@@ -65,6 +66,41 @@ create table if not exists locations (
                 ) stored
 );
 
+-- Databases created before other_names existed get it here.
+alter table locations add column if not exists other_names text[] not null default '{}';
+
 create index if not exists loc_name_trgm  on locations using gin (name gin_trgm_ops);
 create index if not exists loc_phone_idx  on locations (phone_key) where phone_key is not null;
 create index if not exists loc_block_idx  on locations (postal_code, street_key);
+create index if not exists loc_lat_idx    on locations (latitude) where latitude is not null;
+
+create or replace function haversine_m(
+  lat1 double precision, lon1 double precision,
+  lat2 double precision, lon2 double precision
+) returns double precision language sql immutable as $$
+  select 6371000 * 2 * asin(sqrt(
+    power(sin(radians(lat2-lat1)/2), 2) +
+    cos(radians(lat1)) * cos(radians(lat2)) *
+    power(sin(radians(lon2-lon1)/2), 2)
+  ));
+$$;
+
+-- Metres between two records, or null when either has no coordinates.
+create or replace function distance_m(a locations, b locations)
+returns double precision language sql stable set search_path = public as $$
+  select case when a.latitude is null or a.longitude is null
+                or b.latitude is null or b.longitude is null then null
+              else haversine_m(a.latitude, a.longitude, b.latitude, b.longitude) end;
+$$;
+
+-- The best trigram similarity across every name each record carries: its
+-- name plus other_names. A registry files a practice under its legal name and
+-- keeps the name on the door as a DBA; a map has only the name on the door.
+-- Comparing legal names alone scores those two as strangers.
+create or replace function name_similarity(a locations, b locations)
+returns real language sql stable set search_path = public as $$
+  select coalesce(max(similarity(x, y)), 0)::real
+    from unnest(array[a.name] || a.other_names) x
+   cross join unnest(array[b.name] || b.other_names) y
+   where x is not null and y is not null;
+$$;

@@ -52,10 +52,11 @@ create temporary table stage_osm (
 
 \copy stage_osm from 'realdata/data/osm_dentists_msp.csv' with (format csv, header true)
 
-insert into locations (source, name, address, postal_code, phone, latitude, longitude, external_ids)
+insert into locations (source, name, other_names, address, postal_code, phone, latitude, longitude, external_ids)
 select
   'nppes',
   nullif(name, ''),
+  coalesce(string_to_array(nullif(other_names, ''), '|'), '{}'),
   nullif(address, ''),
   nullif(postal_code, ''),
   nullif(phone, ''),
@@ -64,10 +65,11 @@ select
   jsonb_build_object('record_id', record_id, 'other_names', nullif(other_names, ''))
 from stage_nppes;
 
-insert into locations (source, name, address, postal_code, phone, latitude, longitude, external_ids)
+insert into locations (source, name, other_names, address, postal_code, phone, latitude, longitude, external_ids)
 select
   'osm',
   nullif(name, ''),
+  coalesce(string_to_array(nullif(other_names, ''), '|'), '{}'),
   nullif(address, ''),
   nullif(postal_code, ''),
   nullif(phone, ''),
@@ -77,3 +79,7 @@ select
 from stage_osm;
 
 commit;
+
+-- Statistics for the planner. candidate_pairs is written to plan well without
+-- them, but a freshly loaded table should be analyzed anyway.
+analyze locations;

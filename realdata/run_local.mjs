@@ -10,7 +10,7 @@
 //   PGLITE_DIR=/tmp/pglite/node_modules/@electric-sql/pglite node realdata/run_local.mjs
 // NODE_PATH does not help here: Node's ESM resolver ignores it.
 
-import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync, mkdirSync, unlinkSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import path from "node:path";
@@ -113,8 +113,8 @@ async function main() {
   const osmRows = readCsvObjects(path.join(REPO_ROOT, "realdata/data/osm_dentists_msp.csv"));
 
   const insertSql = `
-    insert into locations (source, name, address, postal_code, phone, latitude, longitude, external_ids)
-    values ($1, $2, $3, $4, $5, $6, $7, $8::jsonb)
+    insert into locations (source, name, address, postal_code, phone, latitude, longitude, external_ids, other_names)
+    values ($1, $2, $3, $4, $5, $6, $7, $8::jsonb, coalesce(string_to_array(nullif($9, ''), '|'), '{}'))
   `;
 
   for (const r of nppesRows) {
@@ -128,6 +128,7 @@ async function main() {
       orNullNum(r.latitude),
       orNullNum(r.longitude),
       JSON.stringify(externalIds),
+      r.other_names || "",
     ]);
   }
 
@@ -142,8 +143,11 @@ async function main() {
       orNullNum(r.latitude),
       orNullNum(r.longitude),
       JSON.stringify(externalIds),
+      r.other_names || "",
     ]);
   }
+
+  await db.exec("analyze locations;");
 
   console.log("=== rows per source ===");
   const bySource = await db.query(
@@ -194,7 +198,7 @@ async function main() {
   const recKey = `(l.source || ':' || (l.external_ids->>'record_id'))`;
   const pairsRes = await db.query(`
     with p as (
-      select sp.verdict, sp.score, sp.block,
+      select sp.verdict, sp.score, sp.block, sp.routed_by,
              ${recKey.replace(/l\./g, "la.")} as ka,
              ${recKey.replace(/l\./g, "lb.")} as kb,
              la.id as ida, lb.id as idb
@@ -202,9 +206,9 @@ async function main() {
         join locations la on la.id = sp.a_id
         join locations lb on lb.id = sp.b_id
     )
-    select p.verdict, round(p.score::numeric, 3)::text as score, p.block,
-           case when p.ka < p.kb then p.ida else p.idb end as first_id,
-           case when p.ka < p.kb then p.idb else p.ida end as second_id
+    select p.verdict, round(p.score::numeric, 3)::text as score, p.block, p.routed_by,
+           case when p.ka collate "C" < p.kb collate "C" then p.ida else p.idb end as first_id,
+           case when p.ka collate "C" < p.kb collate "C" then p.idb else p.ida end as second_id
       from p
   `);
 
@@ -251,6 +255,7 @@ async function main() {
         verdict: r.verdict,
         score: r.score,
         block: r.block,
+        routed_by: r.routed_by ?? "",
         ...side("a", a),
         ...side("b", b),
         distance_m: distance(a, b),
@@ -263,24 +268,45 @@ async function main() {
   mkdirSync(labelsDir, { recursive: true });
   writeCsv(
     path.join(labelsDir, "scored_pairs.csv"),
-    ["pair_key", "verdict", "score", "block", ...sideCols("a"), ...sideCols("b"), "distance_m"],
+    ["pair_key", "verdict", "routed_by", "score", "block", ...sideCols("a"), ...sideCols("b"), "distance_m"],
     allPairs,
   );
 
   // Every auto_merge and every review pair, plus the DISTINCT_SAMPLE distinct
-  // pairs with the lowest md5(pair_key). The labelling file is blinded: no
-  // score, verdict or block, and rows shuffled by md5 so bands are mixed.
+  // pairs with the lowest md5(pair_key), need a label. A label already in
+  // either pair_labels file is reused, and so is one in neighbour_labels.csv for an
+  // OSM and registry pair (same rules, same question). Whatever is left goes
+  // to needs_label_blind.csv, blinded (no score, verdict or block) and
+  // shuffled by md5 so the bands mix; the file is removed once nothing is
+  // left. to_label_blind.csv is the first round, drawn the same way from the
+  // pipeline as it stood in commit ee2e579, and round2_blind.csv is a frozen
+  // copy of the second round's needs_label_blind.csv.
   const DISTINCT_SAMPLE = 60;
   const byShuffle = (x, y) => (x.shuffle < y.shuffle ? -1 : 1);
-  const toLabel = [
+  const needed = [
     ...allPairs.filter((p) => p.verdict !== "distinct"),
     ...allPairs.filter((p) => p.verdict === "distinct").sort(byShuffle).slice(0, DISTINCT_SAMPLE),
-  ].sort(byShuffle);
-  writeCsv(
-    path.join(labelsDir, "to_label_blind.csv"),
-    ["pair_key", ...sideCols("a"), ...sideCols("b"), "distance_m"],
-    toLabel,
+  ];
+  const labelled = new Set();
+  const pairLabelFiles = ["pair_labels.csv", "pair_labels_round2.csv"].map((f) =>
+    path.join(labelsDir, f),
   );
+  const neighbourLabelsFile = path.join(labelsDir, "neighbour_labels.csv");
+  for (const file of pairLabelFiles.filter((f) => existsSync(f))) {
+    for (const r of readCsvObjects(file)) labelled.add(r.pair_key);
+  }
+  if (existsSync(neighbourLabelsFile)) {
+    for (const r of readCsvObjects(neighbourLabelsFile)) {
+      labelled.add([r.osm_key, r.nppes_key].sort().join("|"));
+    }
+  }
+  const missing = needed.filter((p) => !labelled.has(p.pair_key)).sort(byShuffle);
+  const needsPath = path.join(labelsDir, "needs_label_blind.csv");
+  if (missing.length > 0) {
+    writeCsv(needsPath, ["pair_key", ...sideCols("a"), ...sideCols("b"), "distance_m"], missing);
+  } else if (existsSync(needsPath)) {
+    unlinkSync(needsPath);
+  }
 
   // Recall set: for every OSM record, the registry records that could be the
   // same practice whether or not blocking paired them: anything within 300 m,
@@ -333,7 +359,7 @@ async function main() {
   console.log("\n=== exports ===");
   console.log(`  scored_pairs.csv: ${allPairs.length} pairs`);
   console.log(
-    `  to_label_blind.csv: ${toLabel.length} pairs (every auto_merge and review, ${DISTINCT_SAMPLE} distinct)`,
+    `  pairs needing a label: ${needed.length} (every auto_merge and review, ${DISTINCT_SAMPLE} distinct); unlabelled: ${missing.length}`,
   );
   console.log(
     `  osm_neighbours_blind.csv: ${neighbours.length} rows covering ${osmWithNeighbour} of ${osmRows.length} OSM records`,
@@ -344,18 +370,19 @@ async function main() {
   // load-labels.sql fills these tables with \copy under psql; PGlite has no
   // \copy, so the same CSVs go in row by row here, then metrics.sql runs as is.
 
-  const pairLabelsPath = path.join(labelsDir, "pair_labels.csv");
   const neighbourLabelsPath = path.join(labelsDir, "neighbour_labels.csv");
-  if (existsSync(pairLabelsPath) && existsSync(neighbourLabelsPath)) {
+  if (pairLabelFiles.every((f) => existsSync(f)) && existsSync(neighbourLabelsPath)) {
     const ddl = readFileSync(path.join(REPO_ROOT, "realdata/load-labels.sql"), "utf-8")
       .split("\n")
       .filter((line) => !line.startsWith("\\copy"))
       .join("\n");
     await db.exec(ddl);
-    for (const r of readCsvObjects(pairLabelsPath)) {
-      await db.query("insert into pair_labels values ($1, $2, $3, $4, $5)", [
-        r.pair_key, r.pass1, r.pass2, r.label, r.reason,
-      ]);
+    for (const [i, file] of pairLabelFiles.entries()) {
+      for (const r of readCsvObjects(file)) {
+        await db.query("insert into pair_labels values ($1, $2, $3, $4, $5, $6)", [
+          r.pair_key, r.pass1, r.pass2, r.label, r.reason, i + 1,
+        ]);
+      }
     }
     for (const r of readCsvObjects(neighbourLabelsPath)) {
       await db.query("insert into neighbour_labels values ($1, $2, $3, $4, $5, $6)", [
